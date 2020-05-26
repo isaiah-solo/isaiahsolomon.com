@@ -5,7 +5,6 @@ import Title from "../components/Title"
 import ProfileImage from "../components/ProfileImage"
 import Paragraph from "../components/Paragraph"
 import Layout from "../components/Layout"
-import Image from "../components/ProfileImage"
 import SEO from "../components/SEO"
 
 const styles = {
