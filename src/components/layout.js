@@ -46,7 +46,7 @@ const styles = {
     flexGrow: 1,
     width: '100%',
   },
-}
+};
 
 const Layout = ({
   children,
@@ -84,6 +84,6 @@ const Layout = ({
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

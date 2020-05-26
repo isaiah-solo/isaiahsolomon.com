@@ -28,9 +28,9 @@ function SEO({
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site.siteMetadata.description;
 
   return (
     <Helmet
@@ -80,20 +80,20 @@ function SEO({
         },
       ].concat(meta)}
     />
-  )
-}
+  );
+};
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: 'en',
   meta: [],
-  description: ``,
-}
+  description: '',
+};
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-}
+};
 
-export default SEO
+export default SEO;
