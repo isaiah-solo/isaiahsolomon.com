@@ -15,7 +15,10 @@ const Link = ({
   href,
 }) => {
   return (
-    <a href={href !== '' ? href : '#'} style={{...styles.root, ...cstyle}}>
+    <a
+      href={href !== '' ? href : '#'}
+      style={{...styles.root, ...cstyle}}
+      target="_blank">
       {children}
     </a>
   );
