@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Isaiah Solomon Home Page',
+    title: 'Isaiah Solomon',
     description: 'Hey, my name is Isaiah. I am a software developer and I like to build cool things.',
     author: 'Isaiah Solomon',
   },
