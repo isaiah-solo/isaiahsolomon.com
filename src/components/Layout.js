@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import PropTypes from "prop-types"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -38,6 +38,10 @@ const styles = {
     gridAutoFlow: 'column',
     gridGap: 12,
   },
+  link: {
+    boxSizing: 'border-box',
+    width: 100,
+  },
   main: {
     alignItems: 'center',
     boxSizing: 'border-box',
@@ -51,13 +55,29 @@ const styles = {
 const Layout = ({
   children,
 }) => {
+  const [contactMeIsHovered, setContactMeIsHovered] = useState(false);
   return (
     <>
       <Nav
         leftContent={
-          <SmallTitle>
-            <Link href="https://google.com">Contact Me</Link>
-          </SmallTitle>
+          <div
+            onMouseEnter={() => {
+              setContactMeIsHovered(true)
+            }}
+            onMouseLeave={() => {
+              setContactMeIsHovered(false)
+            }}
+            style={styles.link}>
+            <SmallTitle>
+              {!contactMeIsHovered ? (
+                'Contact Me'
+              ) : (
+                <Link href="mailto:isaiah.c.solomon@gmail.com">
+                  {'isaiah.c.solomon@gmail.com'}
+                </Link>
+              )}
+            </SmallTitle>
+          </div>
         }
         rightContent={
           <div style={styles.icons}>
@@ -73,7 +93,7 @@ const Layout = ({
       <div style={styles.content}>
         <main style={styles.main}>{children}</main>
         <footer style={styles.footer}>
-          © {new Date().getFullYear()}, Built with
+          © {new Date().getFullYear()} Powered by
           {' '}
           <Link cstyle={styles.footerLink} href="https://www.gatsbyjs.org">Gatsby</Link>
         </footer>

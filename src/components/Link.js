@@ -17,6 +17,7 @@ const Link = ({
   return (
     <a
       href={href !== '' ? href : '#'}
+      rel="noreferrer"
       style={{...styles.root, ...cstyle}}
       target="_blank">
       {children}
