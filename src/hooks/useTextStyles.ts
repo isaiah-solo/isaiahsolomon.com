@@ -10,15 +10,15 @@ const styles = {
   secondary: {
     color: 'rgba(0, 0, 0, 0.6)',
   },
-}
+};
 
 const useTextStyles = (
-  textStyle,
-) => {
+  textStyle: string,
+): Object => {
   return {
     ...styles.root,
     ...styles[textStyle],
   };
 };
 
-export default useTextStyles
+export default useTextStyles;

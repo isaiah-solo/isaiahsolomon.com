@@ -1,13 +1,14 @@
-import PropTypes from "prop-types";
 import React from "react";
+
+type BoxSizing = 'border-box';
 
 const styles = {
   root: {
     background: 'white',
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as BoxSizing,
   },
   content: {
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as BoxSizing,
     display: 'flex',
     height: 'fit-content',
     justifyContent: 'space-between',
@@ -17,10 +18,15 @@ const styles = {
   },
 }
 
+type Props = {
+  leftContent?: React.ReactElement,
+  rightContent?: React.ReactElement,
+};
+
 const Nav = ({
   leftContent,
   rightContent,
-}) => {
+}: Props): React.ReactElement => {
   return (
     <header style={styles.root}>
       <div style={styles.content}>
@@ -30,10 +36,5 @@ const Nav = ({
     </header>
   );
 };
-
-Nav.propTypes = {
-  leftContent: PropTypes.node,
-  rightContent: PropTypes.node,
-}
 
 export default Nav

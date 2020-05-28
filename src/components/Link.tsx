@@ -1,5 +1,4 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
 
 const styles = {
   root: {
@@ -7,13 +6,19 @@ const styles = {
     display: 'block',
     textDecoration: 'none',
   },
-}
+};
+
+type Props = {
+  children: React.ReactElement | string,
+  cstyle?: Object,
+  href: string,
+};
 
 const Link = ({
   children,
   cstyle,
   href,
-}) => {
+}: Props): React.ReactElement => {
   return (
     <a
       href={href !== '' ? href : '#'}
@@ -25,8 +30,4 @@ const Link = ({
   );
 };
 
-Link.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Link
+export default Link;

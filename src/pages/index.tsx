@@ -1,16 +1,19 @@
-import React from "react"
+import React from "react";
 
-import RouteLink from "../components/RouteLink"
-import Title from "../components/Title"
-import ProfileImage from "../components/ProfileImage"
-import Paragraph from "../components/Paragraph"
-import Layout from "../components/Layout"
-import SEO from "../components/SEO"
+import RouteLink from "../components/RouteLink";
+import Title from "../components/Title";
+import ProfileImage from "../components/ProfileImage";
+import Paragraph from "../components/Paragraph";
+import Layout from "../components/Layout";
+import SEO from "../components/SEO";
+
+type BoxSizing = 'border-box';
+type FlexDirection = 'column' | 'row';
 
 const styles = {
   body: {
     alignItems: 'center',
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as BoxSizing,
     display: 'grid',
     flexGrow: 1,
     gridGap: 20,
@@ -19,18 +22,18 @@ const styles = {
   },
   text: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column' as FlexDirection,
     height: '100%',
   },
   image: {
     borderRadius: '50%',
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as BoxSizing,
     height: 300,
     width: 300,
   },
 };
 
-const HomePage = () => {
+const HomePage = (): React.ReactElement => {
   return (
     <Layout>
       <SEO title="Home" />
@@ -50,4 +53,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage
+export default HomePage;

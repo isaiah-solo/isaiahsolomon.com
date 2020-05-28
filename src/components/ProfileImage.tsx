@@ -1,8 +1,8 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from "react";
+import {useStaticQuery, graphql} from "gatsby";
+import Img from "gatsby-image";
 
-const ProfileImage = () => {
+const ProfileImage = (): React.ReactElement => {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "isaiah.jpg" }) {
@@ -13,7 +13,7 @@ const ProfileImage = () => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <Img

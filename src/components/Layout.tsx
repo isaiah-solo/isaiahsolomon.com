@@ -1,17 +1,19 @@
-import React, {useState} from "react"
-import PropTypes from "prop-types"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import React, {useState} from "react";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faGithubSquare, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 
-import Link from "./Link"
-import Nav from "./Nav"
-import SmallTitle from "./SmallTitle"
+import Link from "./Link";
+import Nav from "./Nav";
+import SmallTitle from "./SmallTitle";
+
+type BoxSizing = 'border-box';
+type FlexDirection = 'column' | 'row';
 
 const styles = {
   content: {
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as BoxSizing,
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column' as FlexDirection,
     flexGrow: 1,
     height: 'calc(100vh - 78px)',
     margin: 'auto',
@@ -19,63 +21,68 @@ const styles = {
     padding: 20,
   },
   footer: {
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as BoxSizing,
     width: '100%',
   },
   footerLink: {
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as BoxSizing,
     display: 'inline',
   },
   icon: {
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as BoxSizing,
     height: 22,
     width: 22,
   },
   icons: {
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as BoxSizing,
     display: 'grid',
     height: 22,
     gridAutoFlow: 'column',
     gridGap: 12,
   },
   link: {
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as BoxSizing,
     width: 100,
   },
   main: {
     alignItems: 'center',
-    boxSizing: 'border-box',
+    boxSizing: 'border-box' as BoxSizing,
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'row' as FlexDirection,
     flexGrow: 1,
     width: '100%',
   },
 };
 
+type Props = {
+  children: React.ReactNodeArray,
+};
+
 const Layout = ({
   children,
-}) => {
+}: Props): React.ReactElement => {
   const [contactMeIsHovered, setContactMeIsHovered] = useState(false);
   return (
     <>
       <Nav
         leftContent={
           <div
-            onMouseEnter={() => {
-              setContactMeIsHovered(true)
+            onMouseEnter={(): void => {
+              setContactMeIsHovered(true);
             }}
-            onMouseLeave={() => {
-              setContactMeIsHovered(false)
+            onMouseLeave={(): void => {
+              setContactMeIsHovered(false);
             }}
+            role="none"
             style={styles.link}>
             <SmallTitle>
               {!contactMeIsHovered ? (
                 'Contact Me'
               ) : (
-                <Link href="mailto:isaiah.c.solomon@gmail.com">
-                  {'isaiah.c.solomon@gmail.com'}
-                </Link>
-              )}
+                  <Link href="mailto:isaiah.c.solomon@gmail.com">
+                    {'isaiah.c.solomon@gmail.com'}
+                  </Link>
+                )}
             </SmallTitle>
           </div>
         }
@@ -95,15 +102,13 @@ const Layout = ({
         <footer style={styles.footer}>
           © {new Date().getFullYear()} Powered by
           {' '}
-          <Link cstyle={styles.footerLink} href="https://www.gatsbyjs.org">Gatsby</Link>
+          <Link cstyle={styles.footerLink} href="https://www.gatsbyjs.org">
+            Gatsby
+          </Link>
         </footer>
       </div>
     </>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

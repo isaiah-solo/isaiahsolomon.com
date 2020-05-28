@@ -1,6 +1,6 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
-import { PageProps, Link } from "gatsby"
+import {PageProps, Link} from "gatsby"
 
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
@@ -14,4 +14,4 @@ const SecondPage = (props: PageProps) => (
   </Layout>
 )
 
-export default SecondPage
+export default SecondPage;

@@ -1,6 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Link as GatsbyLink } from "gatsby"
+import React from "react";
+import {Link as GatsbyLink} from "gatsby";
 
 const styles = {
   root: {
@@ -8,12 +7,17 @@ const styles = {
     display: 'block',
     textDecoration: 'none',
   },
-}
+};
+
+type Props = {
+  children: React.ReactElement | string,
+  to: string,
+};
 
 const RouteLink = ({
   children,
   to,
-}) => {
+}: Props): React.ReactElement => {
   return (
     <GatsbyLink to={to} style={styles.root}>
       {children}
@@ -21,8 +25,4 @@ const RouteLink = ({
   );
 };
 
-RouteLink.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default RouteLink
+export default RouteLink;
