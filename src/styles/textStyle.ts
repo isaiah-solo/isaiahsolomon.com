@@ -1,4 +1,4 @@
-import {StyleSheet, css} from 'aphrodite';
+import {StyleSheet} from 'aphrodite';
 
 const styles = StyleSheet.create({
   root: {
@@ -14,13 +14,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const useTextStyles = (
-  textStyle: string,
-): Array<Object> => {
-  return [
-    styles.root,
-    styles[textStyle],
-  ];
+export default {
+  primary: [styles.root, styles.primary],
+  secondary: [styles.root, styles.secondary],
 };
-
-export default useTextStyles;

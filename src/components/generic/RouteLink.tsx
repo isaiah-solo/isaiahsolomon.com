@@ -1,4 +1,5 @@
 import React from "react";
+import {Link as GatsbyLink} from "gatsby";
 import {StyleSheet, css} from 'aphrodite';
 
 const styles = StyleSheet.create({
@@ -10,23 +11,20 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
-  children: React.ReactElement | string,
-  styles?: Object,
-  href: string,
+  children: React.ReactChildren | string,
+  to: string,
 };
 
-export default function Link({
+export default function RouteLink({
   children,
-  styles: stylesFromProps,
-  href,
+  to,
 }: Props): React.ReactElement {
   return (
-    <a
-      className={css(styles.root, stylesFromProps)}
-      href={href !== '' ? href : '#'}
-      rel="noreferrer"
-      target="_blank">
+    <GatsbyLink
+      className={css(styles.root)}
+      to={to}
+    >
       {children}
-    </a>
+    </GatsbyLink>
   );
 };

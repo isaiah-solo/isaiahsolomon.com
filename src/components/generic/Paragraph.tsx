@@ -1,7 +1,7 @@
 import React from "react";
 import {css} from 'aphrodite';
 
-import useTextStyles from "../hooks/useTextStyles";
+import textStyle from "../../styles/textStyle";
 
 type Props = {
   children: React.ReactElement | string,
@@ -10,10 +10,8 @@ type Props = {
 export default function Paragraph({
   children,
 }: Props): React.ReactElement {
-  const textStyle = useTextStyles('secondary');
-
   return (
-    <p className={css(textStyle)}>
+    <p className={css(textStyle.secondary)}>
       {children}
     </p>
   );

@@ -6,6 +6,9 @@ import {StyleSheet, css} from 'aphrodite';
 const styles = StyleSheet.create({
   root: {
     borderRadius: '50%',
+    boxSizing: 'border-box',
+    height: 300,
+    width: 300,
   },
 });
 

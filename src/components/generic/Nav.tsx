@@ -1,15 +1,13 @@
 import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
-type BoxSizing = 'border-box';
-
 const styles = StyleSheet.create({
   root: {
     background: 'white',
-    boxSizing: 'border-box' as BoxSizing,
+    boxSizing: 'border-box',
   },
   content: {
-    boxSizing: 'border-box' as BoxSizing,
+    boxSizing: 'border-box',
     display: 'flex',
     height: 'fit-content',
     justifyContent: 'space-between',

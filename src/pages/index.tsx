@@ -1,20 +1,22 @@
 import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
-import RouteLink from "../components/RouteLink";
-import Title from "../components/Title";
-import ProfileImage from "../components/ProfileImage";
-import Paragraph from "../components/Paragraph";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Footer from '../components/generic/Footer';
+import Layout from "../components/generic/Layout";
+import Link from '../components/generic/Link';
+import Paragraph from "../components/generic/Paragraph";
+import ProfileImage from "../components/generic/ProfileImage";
+import RouteLink from "../components/generic/RouteLink";
+import Title from "../components/generic/Title";
 
-type BoxSizing = 'border-box';
-type FlexDirection = 'column' | 'row';
+import HomeNav from '../components/nav/HomeNav';
+
+import SEO from "../components/SEO";
 
 const styles = StyleSheet.create({
   body: {
     alignItems: 'center',
-    boxSizing: 'border-box' as BoxSizing,
+    boxSizing: 'border-box',
     display: 'grid',
     flexGrow: 1,
     gridGap: 20,
@@ -23,20 +25,25 @@ const styles = StyleSheet.create({
   },
   text: {
     display: 'flex',
-    flexDirection: 'column' as FlexDirection,
+    flexDirection: 'column',
     height: '100%',
-  },
-  image: {
-    borderRadius: '50%',
-    boxSizing: 'border-box' as BoxSizing,
-    height: 300,
-    width: 300,
   },
 });
 
 export default function HomePage(): React.ReactElement {
   return (
-    <Layout>
+    <Layout
+      footer={
+        <Footer>
+          © {new Date().getFullYear()} Powered by
+          {' '}
+          <Link href="https://www.gatsbyjs.org">
+            Gatsby
+          </Link>
+        </Footer>
+      }
+      nav={<HomeNav />}
+    >
       <SEO title="Home" />
       <div className={css(styles.body)}>
         <div className={css(styles.text)}>
@@ -48,9 +55,7 @@ export default function HomePage(): React.ReactElement {
             Go to page 2
           </RouteLink>
         </div>
-        <div className={css(styles.image)}>
-          <ProfileImage />
-        </div>
+        <ProfileImage />
       </div>
     </Layout>
   );

@@ -2,7 +2,8 @@
 import React from "react";
 import {PageProps, Link} from "gatsby";
 
-import Layout from "../components/Layout";
+import Layout from "../components/generic/Layout";
+
 import SEO from "../components/SEO";
 
 export default function SecondPage(props: PageProps) {

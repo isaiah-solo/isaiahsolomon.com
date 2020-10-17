@@ -1,7 +1,7 @@
 import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
-import useTextStyles from "../hooks/useTextStyles";
+import textStyle from "../../styles/textStyle";
 
 const styles = StyleSheet.create({
   root: {
@@ -11,17 +11,13 @@ const styles = StyleSheet.create({
 
 type Props = {
   children: React.ReactElement | string,
-  styles?: Object,
 };
 
 export default function SmallTitle({
   children,
-  styles: stylesFromProps,
 }: Props): React.ReactElement {
-  const textStyle = useTextStyles('primary');
-
   return (
-    <p className={css(styles.root, textStyle, stylesFromProps)}>
+    <p className={css(styles.root, textStyle.primary)}>
       {children}
     </p>
   );

@@ -7,6 +7,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-aphrodite',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-resolve-src',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
