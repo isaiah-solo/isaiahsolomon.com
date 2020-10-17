@@ -2,7 +2,7 @@ import React from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import Img from "gatsby-image";
 
-const ProfileImage = (): React.ReactElement => {
+export default function ProfileImage(): React.ReactElement {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "isaiah.jpg" }) {
@@ -22,5 +22,3 @@ const ProfileImage = (): React.ReactElement => {
     />
   );
 };
-
-export default ProfileImage;

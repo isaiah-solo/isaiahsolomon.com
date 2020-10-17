@@ -16,17 +16,17 @@ const styles = {
     maxWidth: 960,
     padding: 20,
   },
-}
+};
 
 type Props = {
   leftContent?: React.ReactElement,
   rightContent?: React.ReactElement,
 };
 
-const Nav = ({
+export default function Nav({
   leftContent,
   rightContent,
-}: Props): React.ReactElement => {
+}: Props): React.ReactElement {
   return (
     <header style={styles.root}>
       <div style={styles.content}>
@@ -36,5 +36,3 @@ const Nav = ({
     </header>
   );
 };
-
-export default Nav

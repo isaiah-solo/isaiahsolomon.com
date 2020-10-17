@@ -33,7 +33,7 @@ const styles = {
   },
 };
 
-const HomePage = (): React.ReactElement => {
+export default function HomePage(): React.ReactElement {
   return (
     <Layout>
       <SEO title="Home" />
@@ -52,5 +52,3 @@ const HomePage = (): React.ReactElement => {
     </Layout>
   );
 };
-
-export default HomePage;

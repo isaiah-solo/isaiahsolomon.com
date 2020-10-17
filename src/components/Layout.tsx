@@ -58,10 +58,11 @@ type Props = {
   children: React.ReactNodeArray,
 };
 
-const Layout = ({
+export default function Layout({
   children,
-}: Props): React.ReactElement => {
+}: Props): React.ReactElement {
   const [contactMeIsHovered, setContactMeIsHovered] = useState(false);
+
   return (
     <>
       <Nav
@@ -110,5 +111,3 @@ const Layout = ({
     </>
   );
 };
-
-export default Layout;

@@ -13,9 +13,9 @@ type Props = {
   title: string,
 };
 
-const SEO = ({
+export default function SEO({
   title,
-}: Props): React.ReactElement => {
+}: Props): React.ReactElement {
   const {site} = useStaticQuery(
     graphql`
       query {
@@ -79,5 +79,3 @@ const SEO = ({
     />
   );
 };
-
-export default SEO;

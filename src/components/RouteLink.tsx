@@ -14,15 +14,13 @@ type Props = {
   to: string,
 };
 
-const RouteLink = ({
+export default function RouteLink({
   children,
   to,
-}: Props): React.ReactElement => {
+}: Props): React.ReactElement {
   return (
     <GatsbyLink to={to} style={styles.root}>
       {children}
     </GatsbyLink>
   );
 };
-
-export default RouteLink;

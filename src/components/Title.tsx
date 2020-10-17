@@ -12,9 +12,9 @@ type Props = {
   children: React.ReactElement | string,
 };
 
-const Title = ({
+export default function Title({
   children,
-}: Props): React.ReactElement => {
+}: Props): React.ReactElement {
   const textStyle = useTextStyles('primary');
 
   return (
@@ -23,5 +23,3 @@ const Title = ({
     </h1>
   );
 };
-
-export default Title;

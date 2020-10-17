@@ -13,10 +13,10 @@ type Props = {
   cstyle?: Object,
 };
 
-const SmallTitle = ({
+export default function SmallTitle({
   children,
   cstyle,
-}: Props): React.ReactElement => {
+}: Props): React.ReactElement {
   const textStyle = useTextStyles('primary');
 
   return (
@@ -25,5 +25,3 @@ const SmallTitle = ({
     </p>
   );
 };
-
-export default SmallTitle;

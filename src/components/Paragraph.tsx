@@ -6,9 +6,9 @@ type Props = {
   children: React.ReactElement | string,
 };
 
-const Paragraph = ({
+export default function Paragraph({
   children,
-}: Props): React.ReactElement => {
+}: Props): React.ReactElement {
   const textStyle = useTextStyles('secondary');
 
   return (
@@ -17,5 +17,3 @@ const Paragraph = ({
     </p>
   );
 };
-
-export default Paragraph;

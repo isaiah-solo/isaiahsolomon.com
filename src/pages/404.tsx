@@ -3,7 +3,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 
-const NotFoundPage = (): React.ReactElement => {
+export default function NotFoundPage(): React.ReactElement {
   return (
     <Layout>
       <SEO title="404: Not found" />
@@ -12,5 +12,3 @@ const NotFoundPage = (): React.ReactElement => {
     </Layout>
   );
 };
-
-export default NotFoundPage;

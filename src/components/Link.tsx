@@ -14,11 +14,11 @@ type Props = {
   href: string,
 };
 
-const Link = ({
+export default function Link({
   children,
   cstyle,
   href,
-}: Props): React.ReactElement => {
+}: Props): React.ReactElement {
   return (
     <a
       href={href !== '' ? href : '#'}
@@ -29,5 +29,3 @@ const Link = ({
     </a>
   );
 };
-
-export default Link;
