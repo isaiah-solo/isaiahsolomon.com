@@ -5,6 +5,7 @@ module.exports = {
     author: 'Isaiah Solomon',
   },
   plugins: [
+    'gatsby-plugin-aphrodite',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
