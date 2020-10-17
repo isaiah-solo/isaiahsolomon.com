@@ -1,4 +1,5 @@
 import React from "react";
+import {css} from 'aphrodite';
 
 import useTextStyles from "../hooks/useTextStyles";
 
@@ -12,7 +13,7 @@ export default function Paragraph({
   const textStyle = useTextStyles('secondary');
 
   return (
-    <p style={textStyle}>
+    <p className={css(textStyle)}>
       {children}
     </p>
   );

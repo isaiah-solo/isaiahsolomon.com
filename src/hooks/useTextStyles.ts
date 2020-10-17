@@ -1,4 +1,6 @@
-const styles = {
+import {StyleSheet, css} from 'aphrodite';
+
+const styles = StyleSheet.create({
   root: {
     boxSizing: 'border-box',
     display: 'block',
@@ -10,15 +12,15 @@ const styles = {
   secondary: {
     color: 'rgba(0, 0, 0, 0.6)',
   },
-};
+});
 
 const useTextStyles = (
   textStyle: string,
-): Object => {
-  return {
-    ...styles.root,
-    ...styles[textStyle],
-  };
+): Array<Object> => {
+  return [
+    styles.root,
+    styles[textStyle],
+  ];
 };
 
 export default useTextStyles;

@@ -1,6 +1,13 @@
 import React from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import Img from "gatsby-image";
+import {StyleSheet, css} from 'aphrodite';
+
+const styles = StyleSheet.create({
+  root: {
+    borderRadius: '50%',
+  },
+});
 
 export default function ProfileImage(): React.ReactElement {
   const data = useStaticQuery(graphql`
@@ -17,8 +24,8 @@ export default function ProfileImage(): React.ReactElement {
 
   return (
     <Img
+      className={css(styles.root)}
       fluid={data.placeholderImage.childImageSharp.fluid}
-      style={{borderRadius: '50%'}}
     />
   );
 };

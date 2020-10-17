@@ -1,13 +1,14 @@
 import React from "react";
 import {Link as GatsbyLink} from "gatsby";
+import {StyleSheet, css} from 'aphrodite';
 
-const styles = {
+const styles = StyleSheet.create({
   root: {
     color: '#457b9d',
     display: 'block',
     textDecoration: 'none',
   },
-};
+});
 
 type Props = {
   children: React.ReactElement | string,
@@ -19,7 +20,9 @@ export default function RouteLink({
   to,
 }: Props): React.ReactElement {
   return (
-    <GatsbyLink to={to} style={styles.root}>
+    <GatsbyLink
+      className={css(styles.root)}
+      to={to}>
       {children}
     </GatsbyLink>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import {StyleSheet, css} from 'aphrodite';
 
 import RouteLink from "../components/RouteLink";
 import Title from "../components/Title";
@@ -10,7 +11,7 @@ import SEO from "../components/SEO";
 type BoxSizing = 'border-box';
 type FlexDirection = 'column' | 'row';
 
-const styles = {
+const styles = StyleSheet.create({
   body: {
     alignItems: 'center',
     boxSizing: 'border-box' as BoxSizing,
@@ -31,21 +32,23 @@ const styles = {
     height: 300,
     width: 300,
   },
-};
+});
 
 export default function HomePage(): React.ReactElement {
   return (
     <Layout>
       <SEO title="Home" />
-      <div style={styles.body}>
-        <div style={styles.text}>
+      <div className={css(styles.body)}>
+        <div className={css(styles.text)}>
           <Title>Isaiah Solomon</Title>
-          <Paragraph>Hey, my name is Isaiah. I am a software developer and I like to build cool things.</Paragraph>
+          <Paragraph>
+            Hey, my name is Isaiah. I am a software developer and I like to build cool things.
+          </Paragraph>
           <RouteLink to="/page-2/">
             Go to page 2
           </RouteLink>
         </div>
-        <div style={styles.image}>
+        <div className={css(styles.image)}>
           <ProfileImage />
         </div>
       </div>

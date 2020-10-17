@@ -1,8 +1,9 @@
 import React from "react";
+import {StyleSheet, css} from 'aphrodite';
 
 type BoxSizing = 'border-box';
 
-const styles = {
+const styles = StyleSheet.create({
   root: {
     background: 'white',
     boxSizing: 'border-box' as BoxSizing,
@@ -16,7 +17,7 @@ const styles = {
     maxWidth: 960,
     padding: 20,
   },
-};
+});
 
 type Props = {
   leftContent?: React.ReactElement,
@@ -28,8 +29,8 @@ export default function Nav({
   rightContent,
 }: Props): React.ReactElement {
   return (
-    <header style={styles.root}>
-      <div style={styles.content}>
+    <header className={css(styles.root)}>
+      <div className={css(styles.content)}>
         {leftContent}
         {rightContent}
       </div>
