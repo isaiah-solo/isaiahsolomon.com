@@ -10,7 +10,7 @@ import Title from "../components/generic/Title";
 
 import HomeNav from '../components/nav/HomeNav';
 
-import SEO from "../components/SEO";
+import Section from "../components/generic/Section";
 
 const styles = StyleSheet.create({
   body: {
@@ -27,32 +27,47 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     height: '100%',
   },
+  titleSection: {
+    alignItems: 'center',
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'row',
+    flexGrow: 1,
+    height: 'calc(100vh - 136px)',
+    width: '100%',
+  },
 });
 
 export default function HomePage(): React.ReactElement {
   return (
     <Layout
       footer={
-        <Footer>
-          © {new Date().getFullYear()} Powered by
+        <Section>
+          <Footer>
+            © {new Date().getFullYear()} Powered by
           {' '}
-          <Link href="https://www.gatsbyjs.org">
-            Gatsby
+            <Link href="https://www.gatsbyjs.org">
+              Gatsby
           </Link>
-        </Footer>
+          </Footer>
+        </Section>
       }
       nav={<HomeNav />}
+      seo="Home"
     >
-      <SEO title="Home" />
-      <div className={css(styles.body)}>
-        <div className={css(styles.text)}>
-          <Title>Isaiah Solomon</Title>
-          <Paragraph>
-            Hey, my name is Isaiah. I am a software developer and I like to build cool things.
-          </Paragraph>
+      <Section>
+        <div className={css(styles.titleSection)}>
+          <div className={css(styles.body)}>
+            <div className={css(styles.text)}>
+              <Title>Isaiah Solomon</Title>
+              <Paragraph>
+                Hey, my name is Isaiah. I am a software developer and I like to build cool things.
+              </Paragraph>
+            </div>
+            <ProfileImage />
+          </div>
         </div>
-        <ProfileImage />
-      </div>
+      </Section>
     </Layout>
   );
 };
