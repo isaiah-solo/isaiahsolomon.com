@@ -45,7 +45,7 @@ export default function HomePage(): React.ReactElement {
         <Section>
           <Footer>
             © {new Date().getFullYear()} Powered by
-          {' '}
+            {' '}
             <Link href="https://www.gatsbyjs.org">
               Gatsby
           </Link>
