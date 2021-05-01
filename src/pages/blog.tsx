@@ -6,12 +6,9 @@ import Footer from '../components/generic/Footer';
 import Layout from "../components/generic/Layout";
 import Link from '../components/generic/Link';
 import Paragraph from "../components/generic/Paragraph";
-import ProfileImage from "../components/generic/ProfileImage";
 import Title from "../components/generic/Title";
 
 import BlogNav from '../components/nav/BlogNav';
-
-import SEO from "../components/SEO";
 
 const styles = StyleSheet.create({
   text: {
@@ -34,8 +31,8 @@ export default function BlogPage(): React.ReactElement {
         </Footer>
       }
       nav={<BlogNav />}
+      seo="Blog"
     >
-      <SEO title="Blog" />
       <div className={css(styles.text)}>
         <Title>Welcome to my blog!</Title>
         <Paragraph>
