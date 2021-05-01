@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
-  children: React.ReactChildren | string,
+  children: React.ReactElement | string,
   to: string,
 };
 

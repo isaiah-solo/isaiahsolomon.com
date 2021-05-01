@@ -1,3 +1,4 @@
+// Gatsby supports TypeScript natively!
 import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
@@ -8,20 +9,11 @@ import Paragraph from "../components/generic/Paragraph";
 import ProfileImage from "../components/generic/ProfileImage";
 import Title from "../components/generic/Title";
 
-import HomeNav from '../components/nav/HomeNav';
+import BlogNav from '../components/nav/BlogNav';
 
 import SEO from "../components/SEO";
 
 const styles = StyleSheet.create({
-  body: {
-    alignItems: 'center',
-    boxSizing: 'border-box',
-    display: 'grid',
-    flexGrow: 1,
-    gridGap: 20,
-    gridTemplateColumns: '1fr auto',
-    width: '100%',
-  },
   text: {
     display: 'flex',
     flexDirection: 'column',
@@ -29,7 +21,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function HomePage(): React.ReactElement {
+export default function BlogPage(): React.ReactElement {
   return (
     <Layout
       footer={
@@ -41,18 +33,15 @@ export default function HomePage(): React.ReactElement {
           </Link>
         </Footer>
       }
-      nav={<HomeNav />}
+      nav={<BlogNav />}
     >
-      <SEO title="Home" />
-      <div className={css(styles.body)}>
-        <div className={css(styles.text)}>
-          <Title>Isaiah Solomon</Title>
-          <Paragraph>
-            Hey, my name is Isaiah. I am a software developer and I like to build cool things.
-          </Paragraph>
-        </div>
-        <ProfileImage />
+      <SEO title="Blog" />
+      <div className={css(styles.text)}>
+        <Title>Welcome to my blog!</Title>
+        <Paragraph>
+          Hey hey
+        </Paragraph>
       </div>
     </Layout>
   );
-};
+}
