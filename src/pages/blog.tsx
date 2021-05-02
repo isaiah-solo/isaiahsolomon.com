@@ -4,12 +4,13 @@ import {StyleSheet, css} from 'aphrodite';
 
 import Footer from '../components/generic/Footer';
 import Layout from "../components/generic/Layout";
-import Link from '../components/generic/Link';
-import Paragraph from "../components/generic/Paragraph";
-import Title from "../components/generic/Title";
-
-import BlogNav from '../components/nav/BlogNav';
 import Section from "../components/generic/Section";
+
+import Link from '../components/generic/text/Link';
+import Paragraph from "../components/generic/text/Paragraph";
+import Title1 from "../components/generic/text/Title1";
+
+import BlogNav from '../components/blog/BlogNav';
 
 const styles = StyleSheet.create({
   text: {
@@ -38,7 +39,7 @@ export default function BlogPage(): React.ReactElement {
     >
       <Section>
         <div className={css(styles.text)}>
-          <Title>Welcome to my blog!</Title>
+          <Title1>Welcome to my blog!</Title1>
           <Paragraph>
             Hey hey
           </Paragraph>

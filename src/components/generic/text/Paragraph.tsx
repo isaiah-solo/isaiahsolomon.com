@@ -1,10 +1,10 @@
 import React from "react";
 import {css} from 'aphrodite';
 
-import textStyle from "../../styles/textStyle";
+import textStyle from "../../../styles/textStyle";
 
 type Props = {
-  children: React.ReactElement | string,
+  children: React.ReactNodeArray | React.ReactElement | string,
 };
 
 export default function Paragraph({

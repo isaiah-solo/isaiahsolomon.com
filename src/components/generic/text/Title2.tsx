@@ -1,7 +1,7 @@
 import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
-import textStyle from "../../styles/textStyle";
+import textStyle from "../../../styles/textStyle";
 
 const styles = StyleSheet.create({
   root: {
@@ -13,12 +13,12 @@ type Props = {
   children: React.ReactElement | string,
 };
 
-export default function Title({
+export default function Title2({
   children,
 }: Props): React.ReactElement {
   return (
-    <h1 className={css(styles.root, textStyle.primary)}>
+    <h2 className={css(styles.root, textStyle.primary)}>
       {children}
-    </h1>
+    </h2>
   );
 };

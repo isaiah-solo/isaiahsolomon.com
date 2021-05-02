@@ -2,8 +2,9 @@ import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
 import Nav from "../generic/Nav";
-import SmallTitle from "../generic/SmallTitle";
 import RouteLink from "../generic/RouteLink";
+
+import SmallTitle from "../generic/text/SmallTitle";
 
 type BoxSizing = 'border-box';
 
