@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   timelineSection: {
     boxSizing: 'border-box',
     display: 'grid',
-    gridGap: 20,
+    gridGap: 40,
     gridTemplateColumns: 'auto 1fr',
   },
   timelineSectionContent: {
