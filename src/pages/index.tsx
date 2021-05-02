@@ -1,14 +1,15 @@
 import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
-import Footer from '../components/generic/Footer';
-import Layout from "../components/generic/Layout";
-import ProfileImage from "../components/generic/ProfileImage";
-import Section from "../components/generic/Section";
+import ProfileImage from "../components/generic/image/ProfileImage";
+
+import Footer from '../components/generic/layout/Footer';
+import Layout from "../components/generic/layout/Layout";
+import Section from "../components/generic/layout/Section";
 
 import Link from '../components/generic/text/Link';
 import Paragraph from "../components/generic/text/Paragraph";
-import SmallTitle from "../components/generic/text/SmallTitle";
+import SubTitle from "../components/generic/text/SubTitle";
 import Title1 from "../components/generic/text/Title1";
 import Title2 from "../components/generic/text/Title2";
 
@@ -74,7 +75,7 @@ export default function HomePage(): React.ReactElement {
         <Timeline>
           <div>
             <Title2>Facebook</Title2>
-            <SmallTitle>Software Engineer &middot; Jun 2018 - Present</SmallTitle>
+            <SubTitle>Software Engineer &middot; Jun 2018 - Present</SubTitle>
             <Paragraph>
               Led development of large-scale projects from beginning to go-live<br />
               - Internal application redesign<br />
@@ -85,7 +86,7 @@ export default function HomePage(): React.ReactElement {
           </div>
           <div>
             <Title2>Williams-Sonoma</Title2>
-            <SmallTitle>Software Engineer &middot; Mar 2018 - Jun 2018</SmallTitle>
+            <SubTitle>Software Engineer &middot; Mar 2018 - Jun 2018</SubTitle>
             <Paragraph>
               - Managed the enterprise-scale analytics tagging codebase existing in all of the six sites under Williams-Sonoma.<br />
               - Introduced site metric tracking and improved site speed by refactoring inefficient code.
@@ -93,7 +94,7 @@ export default function HomePage(): React.ReactElement {
           </div>
           <div>
             <Title2>X2CRM | X2Engine</Title2>
-            <SmallTitle>Software Engineer &middot; Nov 2016 - Mar 2018</SmallTitle>
+            <SubTitle>Software Engineer &middot; Nov 2016 - Mar 2018</SubTitle>
             <Paragraph>
               - One of the core developers in landing one of our company's first big enterprise customers.<br />
               - Built our marketing landing page designer from scratch and managed our complex marketing automation codebase.<br />

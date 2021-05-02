@@ -13,7 +13,7 @@ type Props = {
   children: React.ReactElement | string,
 };
 
-export default function SmallTitle({
+export default function SubTitle({
   children,
 }: Props): React.ReactElement {
   return (

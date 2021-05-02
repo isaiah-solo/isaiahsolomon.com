@@ -1,7 +1,7 @@
 import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
-import Title1 from "./text/Title1";
+import Title1 from "../text/Title1";
 
 const styles = StyleSheet.create({
   root: {

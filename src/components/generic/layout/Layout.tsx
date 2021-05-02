@@ -1,6 +1,7 @@
 import React from "react";
 import {StyleSheet, css} from 'aphrodite';
-import SEO from "../SEO";
+
+import SEO from "./SEO";
 
 const styles = StyleSheet.create({
   content: {

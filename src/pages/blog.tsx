@@ -2,9 +2,9 @@
 import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
-import Footer from '../components/generic/Footer';
-import Layout from "../components/generic/Layout";
-import Section from "../components/generic/Section";
+import Footer from '../components/generic/layout/Footer';
+import Layout from "../components/generic/layout/Layout";
+import Section from "../components/generic/layout/Section";
 
 import Link from '../components/generic/text/Link';
 import Paragraph from "../components/generic/text/Paragraph";

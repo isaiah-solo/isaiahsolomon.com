@@ -3,11 +3,11 @@ import {StyleSheet, css} from 'aphrodite';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGithubSquare, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 
-import Nav from "../generic/Nav";
-import RouteLink from "../generic/RouteLink";
+import Nav from "../generic/layout/Nav";
 
 import Link from "../generic/text/Link";
-import SmallTitle from "../generic/text/SmallTitle";
+import RouteLink from "../generic/text/RouteLink";
+import SubTitle from "../generic/text/SubTitle";
 
 type BoxSizing = 'border-box';
 
@@ -41,10 +41,10 @@ export default function HomeNav(): React.ReactElement {
       leftContent={
         <div className={css(styles.row)}>
           <RouteLink to="/">
-            <SmallTitle>Home</SmallTitle>
+            <SubTitle>Home</SubTitle>
           </RouteLink>
           <RouteLink to="/blog">
-            <SmallTitle>Blog</SmallTitle>
+            <SubTitle>Blog</SubTitle>
           </RouteLink>
         </div>
       }
@@ -59,7 +59,7 @@ export default function HomeNav(): React.ReactElement {
               setContactMeIsHovered(false);
             }}
             role="none">
-            <SmallTitle>
+            <SubTitle>
               {!contactMeIsHovered ? (
                 'Contact Me'
               ) : (
@@ -67,7 +67,7 @@ export default function HomeNav(): React.ReactElement {
                   isaiah.c.solomon@gmail.com
                 </Link>
               )}
-            </SmallTitle>
+            </SubTitle>
           </div>
           <Link href="https://www.linkedin.com/in/isaiah-c-solomon/">
             <FontAwesomeIcon className={css(styles.icon)} icon={faLinkedin} />

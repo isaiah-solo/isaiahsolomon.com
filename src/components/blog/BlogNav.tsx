@@ -1,10 +1,10 @@
 import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
-import Nav from "../generic/Nav";
-import RouteLink from "../generic/RouteLink";
+import Nav from "../generic/layout/Nav";
 
-import SmallTitle from "../generic/text/SmallTitle";
+import RouteLink from "../generic/text/RouteLink";
+import SubTitle from "../generic/text/SubTitle";
 
 type BoxSizing = 'border-box';
 
@@ -24,10 +24,10 @@ export default function BlogNav(): React.ReactElement {
       leftContent={
         <div className={css(styles.row)}>
           <RouteLink to="/">
-            <SmallTitle>Home</SmallTitle>
+            <SubTitle>Home</SubTitle>
           </RouteLink>
           <RouteLink to="/blog">
-            <SmallTitle>Blog</SmallTitle>
+            <SubTitle>Blog</SubTitle>
           </RouteLink>
         </div>
       }

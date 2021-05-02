@@ -1,8 +1,7 @@
 import React from "react"
 
-import Layout from "../components/generic/Layout"
-
-import SEO from "../components/SEO"
+import Layout from "../components/generic/layout/Layout"
+import SEO from "../components/generic/layout/SEO"
 
 export default function NotFoundPage(): React.ReactElement {
   return (
