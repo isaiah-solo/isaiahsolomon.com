@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     flexGrow: 1,
-    height: 'calc(100vh - 136px)',
+    height: 'calc(100vh - 156px)',
     width: '100%',
   },
   body: {

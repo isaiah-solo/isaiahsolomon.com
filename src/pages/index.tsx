@@ -34,7 +34,9 @@ export default function HomePage(): React.ReactElement {
         <HomeCover />
       </Section>
       <HomeScrollIndicator />
-      <Section title="Work Experience">
+      <Section
+        subtitle="Below are my various professional work experiences and education! Please have a look."
+        title="Experience">
         <Timeline>
           <div>
             <Title2>Facebook</Title2>
@@ -42,26 +44,53 @@ export default function HomePage(): React.ReactElement {
             <Paragraph>
               Led development of large-scale projects from beginning to go-live<br />
               - Internal application redesign<br />
-              - New smart global keyword-search experience within product<br />
-              <br />
-              Initially started out as a contractor, converting to full-time within a quick 4 months, in which I successfully built our project's email client end-to-end, handling complex cases and functionalities
+              - New smart global keyword-search experience within product
+            </Paragraph>
+            <Paragraph>
+              Initially started out as a contractor, converting to full-time within a quick 4 months, in which I successfully built our project's email client end-to-end, handling complex cases and functionalities.
             </Paragraph>
           </div>
           <div>
             <Title2>Williams-Sonoma</Title2>
             <SubTitle>Software Engineer &middot; Mar 2018 - Jun 2018</SubTitle>
             <Paragraph>
-              - Managed the enterprise-scale analytics tagging codebase existing in all of the six sites under Williams-Sonoma.<br />
-              - Introduced site metric tracking and improved site speed by refactoring inefficient code.
+              Managed the enterprise-scale analytics tagging codebase existing in all of the six sites under Williams-Sonoma.
+            </Paragraph>
+            <Paragraph>
+              Introduced site metric tracking and improved site speed by refactoring inefficient code.
             </Paragraph>
           </div>
           <div>
             <Title2>X2CRM | X2Engine</Title2>
             <SubTitle>Software Engineer &middot; Nov 2016 - Mar 2018</SubTitle>
             <Paragraph>
-              - One of the core developers in landing one of our company's first big enterprise customers.<br />
-              - Built our marketing landing page designer from scratch and managed our complex marketing automation codebase.<br />
-              - Handled the production process for new versions of the application and developed various internal scripts to automate and optimize productivity.
+              One of the core developers in landing one of our company's first big enterprise customers.
+            </Paragraph>
+            <Paragraph>
+              Built our marketing landing page designer from scratch and managed our complex marketing automation codebase.
+            </Paragraph>
+            <Paragraph>
+              Handled the production process for new versions of the application and developed various internal scripts to automate and optimize productivity.
+            </Paragraph>
+          </div>
+          <div>
+            <Title2>College | University of California, Santa Cruz</Title2>
+            <SubTitle>Student &middot; Sep 2013 - Jun 2017</SubTitle>
+            <Paragraph>
+              Graduated with a B.S. in Computer Science.
+            </Paragraph>
+            <Paragraph>
+              Led the cultural dance troupe in our Filipino Student Association; hosted our biggest event with 400+ attendees.
+            </Paragraph>
+            <Paragraph>
+              Ran the Alpha Phi Omega website as webmaster and active member.
+            </Paragraph>
+          </div>
+          <div>
+            <Title2>High School | Concord High School</Title2>
+            <SubTitle>Student &middot; Sep 2009 - Jun 2013</SubTitle>
+            <Paragraph>
+              Graduated with a 3.3 GPA.
             </Paragraph>
           </div>
         </Timeline>

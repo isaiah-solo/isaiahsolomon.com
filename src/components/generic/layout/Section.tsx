@@ -2,6 +2,7 @@ import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
 import Title1 from "../text/Title1";
+import Paragraph from "../text/Paragraph";
 
 const styles = StyleSheet.create({
   root: {
@@ -19,17 +20,22 @@ const styles = StyleSheet.create({
 
 type Props = {
   children: React.ReactNodeArray | React.ReactElement,
-  title?: string,
+  subtitle?: string | null,
+  title?: string | null,
 };
 
 export default function Section({
   children,
+  subtitle = null,
   title = null,
 }: Props): React.ReactElement {
   return (
     <div className={css(styles.root)}>
       <div className={css(styles.content)}>
-        {title !== null && <Title1>{title}</Title1>}
+        <div>
+          {title !== null && <Title1>{title}</Title1>}
+          {subtitle !== null && <Paragraph>{subtitle}</Paragraph>}
+        </div>
         <div>
           {children}
         </div>

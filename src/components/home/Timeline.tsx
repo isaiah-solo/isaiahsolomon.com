@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     gridTemplateColumns: 'auto 1fr',
   },
   timelineSectionContent: {
-    paddingBottom: 16,
+    paddingBottom: 64,
   },
   timelineUI: {
     boxSizing: 'border-box',
