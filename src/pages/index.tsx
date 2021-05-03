@@ -1,7 +1,4 @@
 import React from "react";
-import {StyleSheet, css} from 'aphrodite';
-
-import ProfileImage from "../components/generic/image/ProfileImage";
 
 import Footer from '../components/generic/layout/Footer';
 import Layout from "../components/generic/layout/Layout";
@@ -10,37 +7,11 @@ import Section from "../components/generic/layout/Section";
 import Link from '../components/generic/text/Link';
 import Paragraph from "../components/generic/text/Paragraph";
 import SubTitle from "../components/generic/text/SubTitle";
-import Title1 from "../components/generic/text/Title1";
 import Title2 from "../components/generic/text/Title2";
 
+import HomeCover from "../components/home/HomeCover";
 import HomeNav from '../components/home/HomeNav';
 import Timeline from "../components/home/Timeline";
-
-const styles = StyleSheet.create({
-  body: {
-    alignItems: 'center',
-    boxSizing: 'border-box',
-    display: 'grid',
-    flexGrow: 1,
-    gridGap: 20,
-    gridTemplateColumns: '1fr auto',
-    width: '100%',
-  },
-  text: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-  },
-  titleSection: {
-    alignItems: 'center',
-    boxSizing: 'border-box',
-    display: 'flex',
-    flexDirection: 'row',
-    flexGrow: 1,
-    height: 'calc(100vh - 136px)',
-    width: '100%',
-  },
-});
 
 export default function HomePage(): React.ReactElement {
   return (
@@ -59,17 +30,7 @@ export default function HomePage(): React.ReactElement {
       nav={<HomeNav />}
       seo="Home">
       <Section>
-        <div className={css(styles.titleSection)}>
-          <div className={css(styles.body)}>
-            <div className={css(styles.text)}>
-              <Title1>Isaiah Solomon</Title1>
-              <Paragraph>
-                Hey, my name is Isaiah. I am a software developer and I like to build cool things.
-              </Paragraph>
-            </div>
-            <ProfileImage />
-          </div>
-        </div>
+        <HomeCover />
       </Section>
       <Section title="Work Experience">
         <Timeline>
