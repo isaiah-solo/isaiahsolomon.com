@@ -5,6 +5,7 @@ import HoverButton from "../generic/button/HoverButton";
 
 import useDebounced from "../../hooks/useDebounced";
 import useOnScrollDown from "../../hooks/useOnScrollDown";
+import useOnScrollUp from "../../hooks/useOnScrollUp";
 
 const arrowKeyframes = {
   '0%': {
@@ -56,9 +57,6 @@ const styles = StyleSheet.create({
       boxShadow: '0 1px 6px rgb(32 33 36 / 28%)',
     }
   },
-  disabledButton: {
-    cursor: 'default',
-  }
 });
 
 export default function HomeScrollIndicator(): React.ReactElement {
@@ -68,44 +66,54 @@ export default function HomeScrollIndicator(): React.ReactElement {
   const [isIndicatorAck, setIsIndicatorAck] = useState(false);
 
   useOnScrollDown((): void => {
+    setShouldAnimateArrow(false);
+    setIsIndicatorAck(true);
+  });
+
+  useOnScrollUp(scrollTop => {
+    if (scrollTop === 0) {
+      setIsIndicatorAck(false);
+    }
+  });
+
+  const animateArrow = useDebounced((): void => {
     if (isIndicatorAck) {
       return;
     }
 
-    setIsIndicatorAck(true);
-  });
-
-  const showArrow = useDebounced((): void => {
     setShouldAnimateArrow(true);
   }, 1000);
 
   useEffect((): void => {
-    setTimeout(showArrow, 1000);
-  }, []);
+    if (!isIndicatorAck) {
+      setTimeout(animateArrow, 1000);
+    }
+  }, [isIndicatorAck]);
 
   return (
     <HoverButton
       onClick={(): void => {
-        if (isIndicatorAck) {
-          return;
-        }
-
         setIsIndicatorAck(true);
-        
+
         window.scrollTo({
-          top: scrollRef.current.offsetTop,
+          top: scrollRef.current.offsetTop + 46,
           behavior: 'smooth'
         });
       }}
       onMouseEnter={(): void => setShouldAnimateArrow(false)}
-      onMouseLeave={showArrow}
+      onMouseLeave={(): void => {
+        if (isIndicatorAck) {
+          return;
+        }
+
+        animateArrow();
+      }}
       ref={scrollRef}
       styleOverride={[
         styles.button,
         !isIndicatorAck && styles.buttonHover,
-        isIndicatorAck && styles.disabledButton,
       ]}>
-      {!isIndicatorAck && <div className={css(styles.arrow, shouldAnimateArrow && styles.arrowAnimation)} />}
+      <div className={css(styles.arrow, shouldAnimateArrow && styles.arrowAnimation)} />
     </HoverButton>
   );
 };

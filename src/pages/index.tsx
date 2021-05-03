@@ -48,8 +48,8 @@ export default function HomePage(): React.ReactElement {
               <SubTitle>Software Engineer &middot; Jun 2018 - Present</SubTitle>
               <Paragraph>
                 Led development of large-scale projects from beginning to go-live<br />
-              - Internal application redesign<br />
-              - New smart global keyword-search experience within product
+                - Internal application redesign<br />
+                - New smart global keyword-search experience within product
               </Paragraph>
               <Paragraph>
                 Initially started out as a contractor, converting to full-time within a quick 4 months, in which I successfully built our project's email client end-to-end, handling complex cases and functionalities.

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {StyleSheet, css} from 'aphrodite';
 
 import Title1 from "../generic/text/Title1";

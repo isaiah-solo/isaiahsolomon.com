@@ -1,14 +1,14 @@
 import {useEffect, useState} from "react";
 
-export default function useOnScrollDown(onScrollDown: (scrollTop: number) => void): void {
+export default function useOnScrollUp(onScrollUp: (scrollTop: number) => void): void {
   const [initialYOffset, setInitialYOffset] = useState(0);
 
   useEffect(() => {
     const scrollFunc = (): void => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-      if (scrollTop > initialYOffset) {
-        onScrollDown(scrollTop);
+      if (scrollTop < initialYOffset) {
+        onScrollUp(scrollTop);
       }
 
       setInitialYOffset(scrollTop <= 0 ? 0 : scrollTop);
@@ -19,5 +19,5 @@ export default function useOnScrollDown(onScrollDown: (scrollTop: number) => voi
     return (): void => {
       window.removeEventListener("scroll", scrollFunc);
     };
-  }, [onScrollDown]);
+  }, [onScrollUp]);
 };
