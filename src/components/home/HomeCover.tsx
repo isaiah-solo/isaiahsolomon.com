@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {StyleSheet, css} from 'aphrodite';
 
 import Title1 from "../generic/text/Title1";
@@ -46,7 +46,19 @@ const mobileStyles = StyleSheet.create({
 });
 
 export default function HomeCover(): React.ReactElement {
-  const isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+  const [isMobile, setIsMobile] = useState(null);
+
+  useEffect((): (() => void) => {
+    const resizeFunc = () => {
+      setIsMobile(window.matchMedia("only screen and (max-width: 760px)").matches);
+    };
+
+    window.addEventListener("resize", resizeFunc, false);
+
+    return (): void => {
+      window.removeEventListener("scroll", resizeFunc);
+    };
+  }, []);
 
   if (isMobile) {
     return (
