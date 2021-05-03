@@ -11,6 +11,7 @@ import Title2 from "../components/generic/text/Title2";
 
 import HomeCover from "../components/home/HomeCover";
 import HomeNav from '../components/home/HomeNav';
+import HomeScrollIndicator from "../components/home/HomeScrollIndicator";
 import Timeline from "../components/home/Timeline";
 
 export default function HomePage(): React.ReactElement {
@@ -32,6 +33,7 @@ export default function HomePage(): React.ReactElement {
       <Section>
         <HomeCover />
       </Section>
+      <HomeScrollIndicator />
       <Section title="Work Experience">
         <Timeline>
           <div>
