@@ -19,16 +19,23 @@ type Props = {
   styleOverride?: StyleDeclarationValue,
 };
 
-export default function HoverButton({
+const HoverButton = ({
   children,
   onClick,
   onMouseEnter,
   onMouseLeave,
   styleOverride,
-}: Props): React.ReactElement {
+}: Props, ref): React.ReactElement => {
   return (
-    <button className={css(styles.root, styleOverride)} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <button
+      className={css(styles.root, styleOverride)}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      ref={ref}>
       {children}
     </button>
   );
 };
+
+export default React.forwardRef(HoverButton);

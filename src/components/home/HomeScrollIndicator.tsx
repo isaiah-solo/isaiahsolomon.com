@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {StyleSheet, css} from 'aphrodite';
 
 import HoverButton from "../generic/button/HoverButton";
 
 import useDebounced from "../../hooks/useDebounced";
+import useOnScrollDown from "../../hooks/useOnScrollDown";
 
 const arrowKeyframes = {
   '0%': {
@@ -54,12 +55,25 @@ const styles = StyleSheet.create({
     ':hover': {
       boxShadow: '0 1px 6px rgb(32 33 36 / 28%)',
     }
+  },
+  disabledButton: {
+    cursor: 'default',
   }
 });
 
 export default function HomeScrollIndicator(): React.ReactElement {
+  const scrollRef = useRef(null);
+
   const [shouldAnimateArrow, setShouldAnimateArrow] = useState(false);
   const [isIndicatorAck, setIsIndicatorAck] = useState(false);
+
+  useOnScrollDown((): void => {
+    if (isIndicatorAck) {
+      return;
+    }
+
+    setIsIndicatorAck(true);
+  });
 
   const showArrow = useDebounced((): void => {
     setShouldAnimateArrow(true);
@@ -71,10 +85,26 @@ export default function HomeScrollIndicator(): React.ReactElement {
 
   return (
     <HoverButton
-      onClick={(): void => setIsIndicatorAck(true)}
+      onClick={(): void => {
+        if (isIndicatorAck) {
+          return;
+        }
+
+        setIsIndicatorAck(true);
+        
+        window.scrollTo({
+          top: scrollRef.current.offsetTop,
+          behavior: 'smooth'
+        });
+      }}
       onMouseEnter={(): void => setShouldAnimateArrow(false)}
       onMouseLeave={showArrow}
-      styleOverride={[styles.button, !isIndicatorAck && styles.buttonHover]}>
+      ref={scrollRef}
+      styleOverride={[
+        styles.button,
+        !isIndicatorAck && styles.buttonHover,
+        isIndicatorAck && styles.disabledButton,
+      ]}>
       {!isIndicatorAck && <div className={css(styles.arrow, shouldAnimateArrow && styles.arrowAnimation)} />}
     </HoverButton>
   );
