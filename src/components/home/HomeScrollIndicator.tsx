@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
-import {StyleSheet, css} from 'aphrodite';
+import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
 
 import HoverButton from "../generic/button/HoverButton";
 
@@ -52,14 +52,13 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '100%',
   },
-  buttonHover: {
-    ':hover': {
-      boxShadow: '0 1px 6px rgb(32 33 36 / 28%)',
-    }
-  },
 });
 
-export default function HomeScrollIndicator(): React.ReactElement {
+type Props = {
+  styleOverride?: StyleDeclarationValue,
+};
+
+export default function HomeScrollIndicator({styleOverride}: Props): React.ReactElement {
   const scrollRef = useRef(null);
 
   const [shouldAnimateArrow, setShouldAnimateArrow] = useState(false);
@@ -73,6 +72,9 @@ export default function HomeScrollIndicator(): React.ReactElement {
   useOnScrollUp(scrollTop => {
     if (scrollTop === 0) {
       setIsIndicatorAck(false);
+    } else {
+      setShouldAnimateArrow(false);
+      setIsIndicatorAck(true);
     }
   });
 
@@ -82,11 +84,11 @@ export default function HomeScrollIndicator(): React.ReactElement {
     }
 
     setShouldAnimateArrow(true);
-  }, 1000);
+  }, 500);
 
   useEffect((): void => {
     if (!isIndicatorAck) {
-      setTimeout(animateArrow, 1000);
+      setTimeout(animateArrow, 500);
     }
   }, [isIndicatorAck]);
 
@@ -109,10 +111,7 @@ export default function HomeScrollIndicator(): React.ReactElement {
         animateArrow();
       }}
       ref={scrollRef}
-      styleOverride={[
-        styles.button,
-        !isIndicatorAck && styles.buttonHover,
-      ]}>
+      styleOverride={[styles.button, styleOverride]}>
       <div className={css(styles.arrow, shouldAnimateArrow && styles.arrowAnimation)} />
     </HoverButton>
   );

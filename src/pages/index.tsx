@@ -1,4 +1,5 @@
 import React from "react";
+import {StyleSheet} from 'aphrodite';
 
 import Footer from '../components/generic/layout/Footer';
 import Layout from "../components/generic/layout/Layout";
@@ -15,6 +16,13 @@ import HomeScrollIndicator from "../components/home/HomeScrollIndicator";
 import Timeline from "../components/home/Timeline";
 
 import {useMobileProvider} from "../contexts/MobileContext";
+
+const styles = StyleSheet.create({
+  indicatorMargin: {
+    boxSizing: 'border-box',
+    marginBottom: 20,
+  },
+});
 
 export default function HomePage(): React.ReactElement {
   const MobileProvider = useMobileProvider();
@@ -38,7 +46,7 @@ export default function HomePage(): React.ReactElement {
         <Section>
           <HomeCover />
         </Section>
-        <HomeScrollIndicator />
+        <HomeScrollIndicator styleOverride={styles.indicatorMargin} />
         <Section
           subtitle="Below are my various professional work experiences and education! Please have a look."
           title="Experience">
