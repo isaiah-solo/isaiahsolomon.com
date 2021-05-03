@@ -7,8 +7,6 @@ import Paragraph from "../generic/text/Paragraph";
 import MobileProfileImage from "../generic/image/MobileProfileImage";
 import WebProfileImage from "../generic/image/WebProfileImage";
 
-import isMobileSized from "../../utils/isMobileSized";
-
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
@@ -48,7 +46,7 @@ const mobileStyles = StyleSheet.create({
 });
 
 export default function HomeCover(): React.ReactElement {
-  const isMobile = isMobileSized();
+  const isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 
   if (isMobile) {
     return (
