@@ -30,8 +30,8 @@ type Props = {
 export default function Timeline({
   children,
 }: Props): React.ReactElement {
-  const timelineElements = children.map(child => (
-    <div className={css(styles.timelineSection)}>
+  const timelineElements = children.map((child, index) => (
+    <div className={css(styles.timelineSection)} key={index}>
       <div className={css(styles.timelineUI)}>
         <TimelineDot />
         <TimelineLine />

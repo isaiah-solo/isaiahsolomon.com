@@ -4,6 +4,10 @@ import {StyleSheet, css} from 'aphrodite';
 import SEO from "./SEO";
 
 const styles = StyleSheet.create({
+  root: {
+    boxSizing: 'border-box',
+    width: '100%',
+  },
   content: {
     boxSizing: 'border-box',
     display: 'flex',
@@ -35,7 +39,7 @@ export default function Layout({
   seo,
 }: Props): React.ReactElement {
   return (
-    <div>
+    <div className={css(styles.root)}>
       {nav}
       <div className={css(styles.content)}>
         <SEO title={seo} />

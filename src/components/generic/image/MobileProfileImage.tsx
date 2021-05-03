@@ -7,12 +7,12 @@ const styles = StyleSheet.create({
   root: {
     borderRadius: '50%',
     boxSizing: 'border-box',
-    height: 300,
-    width: 300,
+    height: 120,
+    width: 120,
   },
 });
 
-export default function ProfileImage(): React.ReactElement {
+export default function MobileProfileImage(): React.ReactElement {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "isaiah.jpg" }) {
