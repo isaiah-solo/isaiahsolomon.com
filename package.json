@@ -46,7 +46,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "API_KEY=AIzaSyCSWB61aaMqJob_4LghD0lBF2caD1arDT0 AUTH_DOMAIN=isaiahsolomon-com.firebaseapp.com PROJECT_ID=isaiahsolomon-com STORAGE_BUCKET=isaiahsolomon-com.appspot.com MESSAGING_SENDER_ID=308498368887 APP_ID=1:308498368887:web:9e256ecfb8d5b2edd77972 MEASUREMENT_ID=G-7M9C0QJXSM npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
