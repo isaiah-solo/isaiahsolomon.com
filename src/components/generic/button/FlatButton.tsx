@@ -7,13 +7,11 @@ const styles = StyleSheet.create({
     border: 'none',
     borderRadius: 8,
     boxSizing: 'border-box',
-    color: '#1976d2',
     cursor: 'pointer',
     padding: 8,
 
     ':hover': {
       backgroundColor: '#f6fafd',
-      cursor: 'pointer',
     }
   },
   text: {
