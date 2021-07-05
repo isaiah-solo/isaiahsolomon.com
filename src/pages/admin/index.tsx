@@ -1,15 +1,13 @@
 import React from "react";
 import AdminNav from "../../components/admin/AdminNav";
 
-import {useAdminSignInProvider} from "../../contexts/AdminSignInContext";
+import {AdminSignInProvider} from "../../contexts/AdminSignInContext";
 import Card from "../../components/generic/card/Card";
 import CardContent from "../../components/generic/card/CardContent";
 import Layout from "../../components/generic/layout/Layout";
 import Section from "../../components/generic/layout/Section";
 
 export default function AdminPage(): React.ReactElement {
-  const AdminSignInProvider = useAdminSignInProvider();
-
   return (
     <AdminSignInProvider>
       <Layout

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {graphql} from "gatsby";
 
 import Layout from "../../../components/generic/layout/Layout";
@@ -10,21 +10,26 @@ import RichTextInput from "../../../components/generic/input/RichTextInput";
 import CardFormFooter from "../../../components/generic/card/CardFormFooter";
 import SubmitButton from "../../../components/generic/button/SubmitButton";
 import AdminNav from "../../../components/admin/AdminNav";
-import {useAdminSignInProvider} from "../../../contexts/AdminSignInContext";
+import {AdminSignInProvider} from "../../../contexts/AdminSignInContext";
+import useFirestoreDocumentMutation from "../../../hooks/useFirestoreDocumentMutation";
 
 export const query = graphql`
   query($id: String!) {
     blogArticles(id: {eq: $id}) {
       content
+      id
       title
     }
   }
 `;
 
 export default function BlogArticlePage({data}): React.ReactElement {
-  const AdminSignInProvider = useAdminSignInProvider();
+  const {content, id, title} = data.blogArticles;
 
-  const {content, title} = data.blogArticles;
+  const [newTitle, setNewTitle] = useState<string>(title);
+  const [newContent, setNewContent] = useState<string>(content);
+
+  const [commitMutation, _isLoading] = useFirestoreDocumentMutation('blog_articles', id);
 
   return (
     <AdminSignInProvider>
@@ -40,16 +45,29 @@ export default function BlogArticlePage({data}): React.ReactElement {
           <Card>
             <CardContent>
               <Title2TextInput
-                defaultText={title}
                 label="Title"
+                setText={setNewTitle}
+                text={newTitle}
               />
               <RichTextInput
-                defaultText={content}
+                defaultText={newContent}
                 label="Content"
+                onTextChange={setNewContent}
               />
             </CardContent>
             <CardFormFooter
-              primaryCTA={<SubmitButton>Submit</SubmitButton>}
+              primaryCTA={(
+                <SubmitButton
+                  onClick={async () => (
+                    commitMutation(prevData => ({
+                      ...prevData,
+                      content: newContent,
+                      title: newTitle
+                    }))
+                  )}>
+                  Submit
+                </SubmitButton>
+              )}
             />
           </Card>
         </Section>

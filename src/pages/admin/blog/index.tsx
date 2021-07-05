@@ -3,7 +3,7 @@ import {StyleSheet} from "aphrodite";
 import {graphql} from "gatsby";
 
 import AdminNav from "../../../components/admin/AdminNav";
-import {useAdminSignInProvider} from "../../../contexts/AdminSignInContext";
+import {AdminSignInProvider} from "../../../contexts/AdminSignInContext";
 import BlogPreviewCard, {BlogPreviewCardNode} from "../../../components/blog/BlogPreviewCard";
 import Layout from "../../../components/generic/layout/Layout";
 import Section from "../../../components/generic/layout/Section";
@@ -43,8 +43,6 @@ type Props = Readonly<{
 export default function AdminBlogPage({
   data
 }: Props): React.ReactElement {
-  const AdminSignInProvider = useAdminSignInProvider();
-  
   const blogArticles = data.allBlogArticles.nodes;
   const blogArticleCards = blogArticles.map(blogArticle => (
     <BlogPreviewCard

@@ -55,7 +55,9 @@ export function useSignInLoadingState(): [
   return [isLoading, error];
 }
 
-export function useAdminSignInProvider() {
+export function AdminSignInProvider({
+  children
+}: ProviderProps) {
   const [
     signIn,
     signOut,
@@ -65,30 +67,20 @@ export function useAdminSignInProvider() {
     error,
   ] = useGoogleSignIn();
 
-  return useMemo(() => (
-    ({children}: ProviderProps): React.ReactElement => (
-      <AdminSignInContext.Provider
-        value={{
-          signIn,
-          signOut,
-          signedInUser,
-          isSignedIn,
-          isLoading,
-          error,
-        }}>
-        <AdminSignInImpl>
-          {children}
-        </AdminSignInImpl>
-      </AdminSignInContext.Provider>
-    )),
-    [
-      signIn,
-      signOut,
-      signedInUser,
-      isSignedIn,
-      isLoading,
-      error,
-    ],
+  return (
+    <AdminSignInContext.Provider
+      value={{
+        signIn,
+        signOut,
+        signedInUser,
+        isSignedIn,
+        isLoading,
+        error,
+      }}>
+      <AdminSignInImpl>
+        {children}
+      </AdminSignInImpl>
+    </AdminSignInContext.Provider>
   );
 }
 
@@ -105,7 +97,7 @@ function AdminSignInImpl({
   if (isLoading) {
     return <div>Loading...</div>
   }
-  
+
   if (!isSignedIn) {
     return <AdminSignInView />;
   }

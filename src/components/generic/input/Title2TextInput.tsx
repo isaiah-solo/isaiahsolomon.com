@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {css, StyleSheet} from 'aphrodite';
 
 import Card from "../card/Card";
@@ -20,18 +20,16 @@ const styles = StyleSheet.create({
 });
 
 type Props = Readonly<{
-  defaultText?: string | null,
   label: string,
-  onTextChange?: (newText: string) => void,
+  setText?: (text: string) => void,
+  text: string,
 }>;
 
 export default function Title2TextInput({
-  defaultText,
   label,
-  onTextChange,
+  setText,
+  text,
 }: Props): React.ReactElement {
-  const [text, setText] = useState<string>(defaultText ?? '');
-
   return (
     <div className={css(styles.root)}>
       <SubTitle>{label}</SubTitle>
@@ -39,12 +37,7 @@ export default function Title2TextInput({
         <CardContent>
           <input
             className={css(styles.input)}
-            onChange={event => {
-              const newText = event.target.value;
-
-              setText(newText);
-              onTextChange?.(newText);
-            }}
+            onChange={event => setText(event.target.value)}
             value={text}
           />
         </CardContent>
