@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
+import React from 'react'
+import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite'
 
 const styles = StyleSheet.create({
   root: {
@@ -12,20 +12,20 @@ const styles = StyleSheet.create({
 
     ':hover': {
       backgroundColor: '#f6fafd',
-    }
+    },
   },
   text: {
     color: '#1976d2',
     fontWeight: 'bold',
     margin: 0,
   },
-});
+})
 
 type Props = Readonly<{
-  children?: React.ReactElement | string,
-  onClick?: () => void,
-  styleOverride?: StyleDeclarationValue,
-}>;
+  children?: React.ReactElement | string
+  onClick?: () => void
+  styleOverride?: StyleDeclarationValue
+}>
 
 export default function FlatButton({
   children,
@@ -33,12 +33,8 @@ export default function FlatButton({
   styleOverride,
 }: Props): React.ReactElement {
   return (
-    <button
-      className={css(styles.root, styleOverride)}
-      onClick={onClick}>
-      <p className={css(styles.text)}>
-        {children}
-      </p>
-    </button >
-  );
-};
+    <button className={css(styles.root, styleOverride)} onClick={onClick}>
+      <p className={css(styles.text)}>{children}</p>
+    </button>
+  )
+}

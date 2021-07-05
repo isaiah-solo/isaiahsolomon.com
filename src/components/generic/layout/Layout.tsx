@@ -1,7 +1,7 @@
-import React from "react";
-import {StyleSheet, css} from 'aphrodite';
+import React from 'react'
+import {StyleSheet, css} from 'aphrodite'
 
-import SEO from "./SEO";
+import SEO from './SEO'
 
 const styles = StyleSheet.create({
   root: {
@@ -23,14 +23,14 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     width: '100%',
   },
-});
+})
 
 type Props = Readonly<{
-  children: React.ReactNodeArray | React.ReactElement,
-  footer?: React.ReactElement,
-  nav?: React.ReactElement,
-  seo: string | null,
-}>;
+  children: React.ReactNodeArray | React.ReactElement
+  footer?: React.ReactElement
+  nav?: React.ReactElement
+  seo: string | null
+}>
 
 export default function Layout({
   children,
@@ -47,5 +47,5 @@ export default function Layout({
         {footer}
       </div>
     </div>
-  );
-};
+  )
+}

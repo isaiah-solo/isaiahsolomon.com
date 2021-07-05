@@ -1,5 +1,5 @@
-import React from "react";
-import {StyleSheet, css} from 'aphrodite';
+import React from 'react'
+import {StyleSheet, css} from 'aphrodite'
 
 const styles = StyleSheet.create({
   root: {
@@ -9,23 +9,22 @@ const styles = StyleSheet.create({
     gridTemplateColumns: '1fr auto auto',
     padding: 16,
   },
-});
+})
 
 type Props = Readonly<{
-  primaryCTA: React.ReactElement,
-  secondaryCTA?: React.ReactElement | null,
-}>;
+  primaryCTA: React.ReactElement
+  secondaryCTA?: React.ReactElement | null
+}>
 
 export default function CardFormFooter({
   primaryCTA,
   secondaryCTA = null,
 }: Props): React.ReactElement {
-
   return (
     <div className={css(styles.root)}>
       <div />
       {secondaryCTA !== null ? secondaryCTA : <div />}
       {primaryCTA}
     </div>
-  );
-};
+  )
+}

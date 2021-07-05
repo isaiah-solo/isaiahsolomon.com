@@ -1,5 +1,5 @@
-import React from "react";
-import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
+import React from 'react'
+import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite'
 
 const styles = StyleSheet.create({
   root: {
@@ -10,20 +10,16 @@ const styles = StyleSheet.create({
     gridGap: 16,
     padding: 16,
   },
-});
+})
 
 type Props = Readonly<{
-  children?: React.ReactNodeArray | React.ReactElement,
-  styleOverride?: StyleDeclarationValue,
-}>;
+  children?: React.ReactNodeArray | React.ReactElement
+  styleOverride?: StyleDeclarationValue
+}>
 
 export default function CardContent({
   children,
   styleOverride,
 }: Props): React.ReactElement {
-  return (
-    <div className={css(styles.root,styleOverride)}>
-      {children}
-    </div>
-  );
-};
+  return <div className={css(styles.root, styleOverride)}>{children}</div>
+}

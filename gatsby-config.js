@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Isaiah Solomon',
-    description: 'Hey, my name is Isaiah. I am a software developer and I like to build cool things.',
+    description:
+      'Hey, my name is Isaiah. I am a software developer and I like to build cool things.',
     author: 'Isaiah Solomon',
   },
   plugins: [
@@ -33,7 +34,7 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
     {
-      resolve: "gatsby-plugin-firebase",
+      resolve: 'gatsby-plugin-firebase',
       options: {
         credentials: {
           apiKey: process.env.API_KEY,
@@ -42,9 +43,9 @@ module.exports = {
           projectId: process.env.PROJECT_ID,
           storageBucket: process.env.STORAGE_BUCKET,
           messagingSenderId: process.env.MESSAGE_SENDER_ID,
-          appId: process.env.APP_ID
-        }
-      }
+          appId: process.env.APP_ID,
+        },
+      },
     },
     {
       resolve: `gatsby-source-firebase-collections`,
@@ -56,21 +57,21 @@ module.exports = {
           projectId: process.env.PROJECT_ID,
           storageBucket: process.env.STORAGE_BUCKET,
           messagingSenderId: process.env.MESSAGE_SENDER_ID,
-          appId: process.env.APP_ID
+          appId: process.env.APP_ID,
         },
         types: [
           {
-            type: "BlogArticles",
+            type: 'BlogArticles',
             collection: `blog_articles`,
             map: doc => ({
               content: doc.content,
               created_date: doc.created_date.seconds,
               last_updated_date: doc.last_updated_date.seconds,
-              title: doc.title
+              title: doc.title,
             }),
           },
-        ]
-      }
-    }
+        ],
+      },
+    },
   ],
 }

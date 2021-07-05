@@ -1,13 +1,13 @@
-import React from "react";
-import {graphql} from "gatsby";
+import React from 'react'
+import {graphql} from 'gatsby'
 
-import Card from "../generic/card/Card";
-import CardContent from "../generic/card/CardContent";
-import CardFooter from "../generic/card/CardFooter";
-import FlatButton from "../generic/button/FlatButton";
-import Paragraph from "../generic/text/Paragraph";
-import RouteLink from "../generic/text/RouteLink";
-import Title2 from "../generic/text/Title2";
+import Card from '../generic/card/Card'
+import CardContent from '../generic/card/CardContent'
+import CardFooter from '../generic/card/CardFooter'
+import FlatButton from '../generic/button/FlatButton'
+import Paragraph from '../generic/text/Paragraph'
+import RouteLink from '../generic/text/RouteLink'
+import Title2 from '../generic/text/Title2'
 
 export const query = graphql`
   fragment BlogPreviewCard on BlogArticles {
@@ -17,15 +17,15 @@ export const query = graphql`
 `
 
 export type BlogPreviewCardNode = Readonly<{
-  content: string,
-  id: string,
-  title: string,
-}>;
+  content: string
+  id: string
+  title: string
+}>
 
 type Props = Readonly<{
-  blogArticle: BlogPreviewCardNode,
-  linkText: string,
-  path: string,
+  blogArticle: BlogPreviewCardNode
+  linkText: string
+  path: string
 }>
 
 export default function BlogPreviewCard({
@@ -33,7 +33,7 @@ export default function BlogPreviewCard({
   linkText,
   path,
 }: Props): React.ReactElement {
-  const {content, title} = blogArticle;
+  const {content, title} = blogArticle
 
   return (
     <Card>
@@ -42,12 +42,12 @@ export default function BlogPreviewCard({
         <Paragraph>{content}</Paragraph>
       </CardContent>
       <CardFooter
-        primaryCTA={(
+        primaryCTA={
           <RouteLink to={path}>
             <FlatButton>{linkText}</FlatButton>
           </RouteLink>
-        )}
+        }
       />
     </Card>
-  );
-};
+  )
+}

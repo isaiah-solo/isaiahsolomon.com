@@ -5,17 +5,15 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react";
-import {Helmet} from "react-helmet";
-import {useStaticQuery, graphql} from "gatsby";
+import React from 'react'
+import {Helmet} from 'react-helmet'
+import {useStaticQuery, graphql} from 'gatsby'
 
 type Props = Readonly<{
-  title: string,
-}>;
+  title: string
+}>
 
-export default function SEO({
-  title,
-}: Props): React.ReactElement {
+export default function SEO({title}: Props): React.ReactElement {
   const {site} = useStaticQuery(
     graphql`
       query {
@@ -27,17 +25,18 @@ export default function SEO({
           }
         }
       }
-    `
-  );
+    `,
+  )
 
-  const metaDescription = site.siteMetadata.description;
+  const metaDescription = site.siteMetadata.description
 
   return (
     <Helmet
       link={[
         {
-          href: "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap",
-          rel: "stylesheet",
+          href:
+            'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap',
+          rel: 'stylesheet',
         },
       ]}
       title={title}
@@ -77,5 +76,5 @@ export default function SEO({
         },
       ]}
     />
-  );
-};
+  )
+}

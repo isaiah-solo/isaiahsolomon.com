@@ -1,12 +1,12 @@
-import React from "react";
-import {graphql} from "gatsby";
+import React from 'react'
+import {graphql} from 'gatsby'
 
-import BlogNav from '../../components/blog/BlogNav';
-import Footer from '../../components/generic/layout/Footer';
-import Layout from "../../components/generic/layout/Layout";
-import Paragraph from "../../components/generic/text/Paragraph";
-import Section from "../../components/generic/layout/Section";
-import Title1 from "../../components/generic/text/Title1";
+import BlogNav from '../../components/blog/BlogNav'
+import Footer from '../../components/generic/layout/Footer'
+import Layout from '../../components/generic/layout/Layout'
+import Paragraph from '../../components/generic/text/Paragraph'
+import Section from '../../components/generic/layout/Section'
+import Title1 from '../../components/generic/text/Title1'
 
 export const query = graphql`
   query($id: String!) {
@@ -15,18 +15,18 @@ export const query = graphql`
       title
     }
   }
-`;
+`
 
 export default function BlogArticlePage({data}): React.ReactElement {
-  const {content, title} = data.blogArticles;
+  const {content, title} = data.blogArticles
 
   return (
     <Layout
-      footer={(
+      footer={
         <Section>
           <Footer />
         </Section>
-      )}
+      }
       nav={<BlogNav />}
       seo={title}>
       <Section>
@@ -34,5 +34,5 @@ export default function BlogArticlePage({data}): React.ReactElement {
         <Paragraph>{content}</Paragraph>
       </Section>
     </Layout>
-  );
+  )
 }
