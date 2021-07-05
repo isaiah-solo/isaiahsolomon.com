@@ -1,5 +1,6 @@
 import React from "react";
 import {StyleSheet, css} from 'aphrodite';
+import Link from "../text/Link";
 
 const styles = StyleSheet.create({
   root: {
@@ -8,16 +9,14 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
-  children: React.ReactNodeArray,
-};
-
-export default function Footer({
-  children,
-}: Props): React.ReactElement {
+export default function Footer(): React.ReactElement {
   return (
     <footer className={css(styles.root)}>
-      {children}
+      © {new Date().getFullYear()} Powered by
+      {' '}
+      <Link href="https://www.gatsbyjs.org">
+        Gatsby
+      </Link>
     </footer>
   );
 };

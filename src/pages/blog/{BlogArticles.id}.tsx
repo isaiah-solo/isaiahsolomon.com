@@ -4,7 +4,6 @@ import {graphql} from "gatsby";
 import BlogNav from '../../components/blog/BlogNav';
 import Footer from '../../components/generic/layout/Footer';
 import Layout from "../../components/generic/layout/Layout";
-import Link from '../../components/generic/text/Link';
 import Paragraph from "../../components/generic/text/Paragraph";
 import Section from "../../components/generic/layout/Section";
 import Title1 from "../../components/generic/text/Title1";
@@ -23,17 +22,11 @@ export default function BlogArticlePage({data}): React.ReactElement {
 
   return (
     <Layout
-      footer={
+      footer={(
         <Section>
-          <Footer>
-            © {new Date().getFullYear()} Powered by
-            {' '}
-            <Link href="https://www.gatsbyjs.org">
-              Gatsby
-            </Link>
-          </Footer>
+          <Footer />
         </Section>
-      }
+      )}
       nav={<BlogNav />}
       seo={title}>
       <Section>

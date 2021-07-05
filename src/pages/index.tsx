@@ -5,7 +5,6 @@ import Footer from '../components/generic/layout/Footer';
 import Layout from "../components/generic/layout/Layout";
 import Section from "../components/generic/layout/Section";
 
-import Link from '../components/generic/text/Link';
 import Paragraph from "../components/generic/text/Paragraph";
 import SubTitle from "../components/generic/text/SubTitle";
 import Title2 from "../components/generic/text/Title2";
@@ -30,17 +29,11 @@ export default function HomePage(): React.ReactElement {
   return (
     <MobileProvider>
       <Layout
-        footer={
+        footer={(
           <Section>
-            <Footer>
-              © {new Date().getFullYear()} Powered by
-              {' '}
-              <Link href="https://www.gatsbyjs.org">
-                Gatsby
-              </Link>
-            </Footer>
+            <Footer />
           </Section>
-        }
+        )}
         nav={<HomeNav />}
         seo="Home">
         <Section>

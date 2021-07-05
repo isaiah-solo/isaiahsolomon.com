@@ -6,7 +6,6 @@ import BlogNav from '../../components/blog/BlogNav';
 import BlogPreviewCard, {BlogPreviewCardNode} from "../../components/blog/BlogPreviewCard";
 import Footer from '../../components/generic/layout/Footer';
 import Layout from "../../components/generic/layout/Layout";
-import Link from '../../components/generic/text/Link';
 import Section from "../../components/generic/layout/Section";
 
 export const query = graphql`
@@ -49,17 +48,11 @@ export default function BlogPage({
 
   return (
     <Layout
-      footer={
+      footer={(
         <Section>
-          <Footer>
-            © {new Date().getFullYear()} Powered by
-            {' '}
-            <Link href="https://www.gatsbyjs.org">
-              Gatsby
-            </Link>
-          </Footer>
+          <Footer />
         </Section>
-      }
+      )}
       nav={<BlogNav />}
       seo="Blog">
       <Section
