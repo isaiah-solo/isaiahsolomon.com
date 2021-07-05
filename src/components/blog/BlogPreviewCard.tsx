@@ -1,4 +1,5 @@
 import React from "react";
+import {graphql} from "gatsby";
 
 import Card from "../generic/card/Card";
 import CardContent from "../generic/card/CardContent";
@@ -6,20 +7,32 @@ import CardFooter from "../generic/card/CardFooter";
 import FlatButton from "../generic/button/FlatButton";
 import Paragraph from "../generic/text/Paragraph";
 import RouteLink from "../generic/text/RouteLink";
-import SubTitle from "../generic/text/SubTitle";
 import Title2 from "../generic/text/Title2";
 
-type Props = Readonly<{
+export const query = graphql`
+  fragment BlogPreviewCard on BlogArticles {
+    blogArticlePath: gatsbyPath(filePath: "/blog/{BlogArticles.id}")
+    content
+    title
+  }
+`
+
+export type BlogPreviewCardNode = Readonly<{
+  blogArticlePath: string,
   content: string,
-  path: string,
+  id: string,
   title: string,
+}>;
+
+type Props = Readonly<{
+  blogArticle: BlogPreviewCardNode,
 }>
 
 export default function BlogPreviewCard({
-  content,
-  path,
-  title,
+  blogArticle
 }: Props): React.ReactElement {
+  const {blogArticlePath, content, title} = blogArticle;
+
   return (
     <Card>
       <CardContent>
@@ -28,7 +41,7 @@ export default function BlogPreviewCard({
       </CardContent>
       <CardFooter
         primaryCTA={(
-          <RouteLink to={path}>
+          <RouteLink to={blogArticlePath}>
             <FlatButton>GO TO FULL ARTICLE</FlatButton>
           </RouteLink>
         )}

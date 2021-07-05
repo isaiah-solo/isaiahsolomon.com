@@ -3,7 +3,7 @@ import {StyleSheet} from "aphrodite";
 import {graphql} from "gatsby";
 
 import BlogNav from '../../components/blog/BlogNav';
-import BlogPreviewCard from "../../components/blog/BlogPreviewCard";
+import BlogPreviewCard, {BlogPreviewCardNode} from "../../components/blog/BlogPreviewCard";
 import Footer from '../../components/generic/layout/Footer';
 import Layout from "../../components/generic/layout/Layout";
 import Link from '../../components/generic/text/Link';
@@ -13,10 +13,8 @@ export const query = graphql`
   query {
     allBlogArticles {
       nodes {
-        blogArticlePath: gatsbyPath(filePath: "/blog/{BlogArticles.id}")
-        content
-        createdDate: created_date
-        title
+        id
+        ...BlogPreviewCard
       }
     }
   }
@@ -30,21 +28,22 @@ const styles = StyleSheet.create({
   },
 });
 
+type Props = Readonly<{
+  data: Readonly<{
+    allBlogArticles: Readonly<{
+      nodes: ReadonlyArray<BlogPreviewCardNode>
+    }>
+  }>,
+}>;
+
 export default function BlogPage({
   data
-}): React.ReactElement {
+}: Props): React.ReactElement {
   const blogArticles = data.allBlogArticles.nodes;
-  const blogArticleCards = blogArticles.map(({
-    blogArticlePath,
-    content,
-    createdDate,
-    title
-  }) => (
+  const blogArticleCards = blogArticles.map(blogArticle => (
     <BlogPreviewCard
-      content={content}
-      key={createdDate}
-      path={blogArticlePath}
-      title={title}
+      blogArticle={blogArticle}
+      key={blogArticle.id}
     />
   ));
 
