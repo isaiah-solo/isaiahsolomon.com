@@ -16,7 +16,7 @@ export default function AdminPage(): React.ReactElement {
         nav={<AdminNav />}
         seo="Admin">
         <Section
-          subtitle="My (Isaiah's) admin panel for editing my site data, etc."
+          subtitle="Admin panel for editing my site data, etc."
           title="Admin Console">
           <Card>
             <CardContent>
