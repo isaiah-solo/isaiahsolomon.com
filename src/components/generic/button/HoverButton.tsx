@@ -11,13 +11,13 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+type Props = Readonly<{
   children?: React.ReactElement | string,
   onClick: () => void,
   onMouseEnter?: () => void,
   onMouseLeave?: () => void,
   styleOverride?: StyleDeclarationValue,
-};
+}>;
 
 const HoverButton = ({
   children,

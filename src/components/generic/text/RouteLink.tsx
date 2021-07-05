@@ -10,10 +10,10 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+type Props = Readonly<{
   children: React.ReactElement | string,
   to: string,
-};
+}>;
 
 export default function RouteLink({
   children,

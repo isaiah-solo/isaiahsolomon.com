@@ -23,12 +23,12 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+type Props = Readonly<{
   children: React.ReactNodeArray | React.ReactElement,
   subtitle?: string | null,
   styleOverride?: StyleDeclarationValue,
   title?: string | null,
-};
+}>;
 
 export default function Section({
   children,

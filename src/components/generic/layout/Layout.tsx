@@ -25,12 +25,12 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+type Props = Readonly<{
   children: React.ReactNodeArray | React.ReactElement,
   footer?: React.ReactElement,
   nav?: React.ReactElement,
   seo: string | null,
-};
+}>;
 
 export default function Layout({
   children,

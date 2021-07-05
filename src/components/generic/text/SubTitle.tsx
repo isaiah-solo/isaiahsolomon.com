@@ -9,9 +9,9 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+type Props = Readonly<{
   children: React.ReactElement | string,
-};
+}>;
 
 export default function SubTitle({
   children,

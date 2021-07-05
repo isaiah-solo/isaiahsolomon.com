@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+type Props = Readonly<{
   children: React.ReactNodeArray | React.ReactElement,
   styleOverride?: StyleDeclarationValue,
   subtitle: string,
   title: string,
-};
+}>;
 
 export default function TimelineSection({
   children,

@@ -54,9 +54,9 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+type Props = Readonly<{
   styleOverride?: StyleDeclarationValue,
-};
+}>;
 
 export default function HomeScrollIndicator({styleOverride}: Props): React.ReactElement {
   const scrollRef = useRef(null);

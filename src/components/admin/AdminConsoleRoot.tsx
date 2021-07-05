@@ -3,10 +3,12 @@ import React from "react";
 import AdminNav from "./AdminNav";
 import Card from "../generic/card/Card";
 import CardContent from "../generic/card/CardContent";
+import CardFormFooter from "../generic/card/CardFormFooter";
 import Layout from "../generic/layout/Layout";
 import RichTextInput from "../generic/input/RichTextInput";
 import Section from "../generic/layout/Section";
-import Title2 from "../generic/text/Title2";
+import SubmitButton from "../generic/button/SubmitButton";
+import Title2TextInput from "../generic/input/Title2TextInput";
 
 export default function AdminConsoleRoot(): React.ReactElement {
   return (
@@ -16,9 +18,17 @@ export default function AdminConsoleRoot(): React.ReactElement {
         title="Admin Console">
         <Card>
           <CardContent>
-            <Title2>Title editor</Title2>
-            <RichTextInput />
+            <Title2TextInput
+              defaultText="Test title"
+              label="Title"
+            />
+            <RichTextInput
+              label="Content"
+            />
           </CardContent>
+          <CardFormFooter
+            primaryCTA={<SubmitButton>Submit</SubmitButton>}
+          />
         </Card>
       </Section>
     </Layout>

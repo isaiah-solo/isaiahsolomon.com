@@ -23,9 +23,9 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+type Props = Readonly<{
   children: React.ReactNodeArray,
-};
+}>;
 
 export default function Timeline({
   children,

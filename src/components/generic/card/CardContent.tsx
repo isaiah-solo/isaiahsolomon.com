@@ -12,10 +12,10 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+type Props = Readonly<{
   children?: React.ReactNodeArray | React.ReactElement,
   styleOverride?: StyleDeclarationValue,
-};
+}>;
 
 export default function CardContent({
   children,

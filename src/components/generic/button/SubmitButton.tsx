@@ -3,21 +3,16 @@ import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
 
 const styles = StyleSheet.create({
   root: {
-    background: 'none',
+    background: '#1976d2',
     border: 'none',
     borderRadius: 8,
     boxSizing: 'border-box',
-    color: '#1976d2',
+    color: 'white',
     cursor: 'pointer',
     padding: 8,
-
-    ':hover': {
-      backgroundColor: '#f6fafd',
-      cursor: 'pointer',
-    }
   },
   text: {
-    color: '#1976d2',
+    color: 'white',
     fontWeight: 'bold',
     margin: 0,
   },
@@ -29,7 +24,7 @@ type Props = Readonly<{
   styleOverride?: StyleDeclarationValue,
 }>;
 
-export default function FlatButton({
+export default function SubmitButton({
   children,
   onClick,
   styleOverride,

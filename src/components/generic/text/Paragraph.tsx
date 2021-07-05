@@ -3,10 +3,10 @@ import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
 
 import textStyle from "../../../styles/textStyle";
 
-type Props = {
+type Props = Readonly<{
   children: React.ReactNodeArray | React.ReactElement | string,
   styleOverride?: StyleDeclarationValue,
-};
+}>;
 
 const styles = StyleSheet.create({
   root: {

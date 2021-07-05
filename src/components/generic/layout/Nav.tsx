@@ -18,10 +18,10 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+type Props = Readonly<{
   leftContent?: React.ReactElement,
   rightContent?: React.ReactElement,
-};
+}>;
 
 export default function Nav({
   leftContent,

@@ -10,11 +10,11 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
+type Props = Readonly<{
   children: React.ReactElement | string,
   styles?: Object,
   href: string,
-};
+}>;
 
 export default function Link({
   children,

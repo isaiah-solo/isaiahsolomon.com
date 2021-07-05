@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
     boxSizing: 'border-box',
     display: 'grid',
     gridGap: 8,
-    gridTemplateColumns: 'auto auto 1fr',
-    padding: 8,
+    gridTemplateColumns: '1fr auto auto',
+    padding: 16,
   },
 });
 
@@ -16,16 +16,16 @@ type Props = Readonly<{
   secondaryCTA?: React.ReactElement | null,
 }>;
 
-export default function CardFooter({
+export default function CardFormFooter({
   primaryCTA,
   secondaryCTA = null,
 }: Props): React.ReactElement {
 
   return (
     <div className={css(styles.root)}>
-      {primaryCTA}
-      {secondaryCTA !== null ? secondaryCTA : <div />}
       <div />
+      {secondaryCTA !== null ? secondaryCTA : <div />}
+      {primaryCTA}
     </div>
   );
 };
