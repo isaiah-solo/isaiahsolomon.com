@@ -2,11 +2,11 @@ import React from "react";
 import {StyleSheet} from "aphrodite";
 import {graphql} from "gatsby";
 
+import AdminNav from "../../../components/admin/AdminNav";
 import {useAdminSignInProvider} from "../../../contexts/AdminSignInContext";
 import BlogPreviewCard, {BlogPreviewCardNode} from "../../../components/blog/BlogPreviewCard";
 import Layout from "../../../components/generic/layout/Layout";
 import Section from "../../../components/generic/layout/Section";
-import AdminNav from "../../../components/admin/AdminNav";
 
 export const query = graphql`
   query {
@@ -58,7 +58,7 @@ export default function AdminBlogPage({
     <AdminSignInProvider>
       <Layout
         nav={<AdminNav />}
-        seo={null}>
+        seo="Admin | Isaiah">
         <Section
           styleOverride={styles.cards}
           subtitle="Where I post my top-of-mind articles."

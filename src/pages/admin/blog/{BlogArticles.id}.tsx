@@ -28,7 +28,9 @@ export default function BlogArticlePage({data}): React.ReactElement {
 
   return (
     <AdminSignInProvider>
-      <Layout nav={<AdminNav />} seo={null}>
+      <Layout
+        nav={<AdminNav />}
+        seo="Admin | Isaiah">
         <Section
           subtitle={
             `This is the editing page for this blog "${title}"'s ` +
