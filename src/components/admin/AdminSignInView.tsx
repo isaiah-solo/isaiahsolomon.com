@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function AdminSignIn(): React.ReactElement {
+export default function AdminSignInView(): React.ReactElement {
   const signInCallback = useSignInCallback();
   const [isLoading, error] = useSignInLoadingState();
 

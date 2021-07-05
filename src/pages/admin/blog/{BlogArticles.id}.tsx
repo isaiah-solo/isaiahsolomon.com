@@ -10,6 +10,7 @@ import RichTextInput from "../../../components/generic/input/RichTextInput";
 import CardFormFooter from "../../../components/generic/card/CardFormFooter";
 import SubmitButton from "../../../components/generic/button/SubmitButton";
 import AdminNav from "../../../components/admin/AdminNav";
+import {useAdminSignInProvider} from "../../../contexts/AdminSignInContext";
 
 export const query = graphql`
   query($id: String!) {
@@ -21,32 +22,36 @@ export const query = graphql`
 `;
 
 export default function BlogArticlePage({data}): React.ReactElement {
+  const AdminSignInProvider = useAdminSignInProvider();
+
   const {content, title} = data.blogArticles;
 
   return (
-    <Layout nav={<AdminNav />} seo={null}>
-      <Section
-        subtitle={
-          `This is the editing page for this blog "${title}"'s ` +
-          `data. Use the form below to edit.`
-        }
-        title={`Editing blog "${title}"`}>
-        <Card>
-          <CardContent>
-            <Title2TextInput
-              defaultText={title}
-              label="Title"
+    <AdminSignInProvider>
+      <Layout nav={<AdminNav />} seo={null}>
+        <Section
+          subtitle={
+            `This is the editing page for this blog "${title}"'s ` +
+            `data. Use the form below to edit.`
+          }
+          title={`Editing blog "${title}"`}>
+          <Card>
+            <CardContent>
+              <Title2TextInput
+                defaultText={title}
+                label="Title"
+              />
+              <RichTextInput
+                defaultText={content}
+                label="Content"
+              />
+            </CardContent>
+            <CardFormFooter
+              primaryCTA={<SubmitButton>Submit</SubmitButton>}
             />
-            <RichTextInput
-              defaultText={content}
-              label="Content"
-            />
-          </CardContent>
-          <CardFormFooter
-            primaryCTA={<SubmitButton>Submit</SubmitButton>}
-          />
-        </Card>
-      </Section>
-    </Layout>
+          </Card>
+        </Section>
+      </Layout>
+    </AdminSignInProvider>
   );
 }

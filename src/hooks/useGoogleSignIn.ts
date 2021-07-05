@@ -16,7 +16,7 @@ export default function useGoogleSignIn(): [
     setSignedInUser,
   ] = useState<firebase.User | null>(null);
 
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<firebase.FirebaseError | null>(null);
 
   useEffect(() => {

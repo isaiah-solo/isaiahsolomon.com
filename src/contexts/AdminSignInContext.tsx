@@ -1,6 +1,7 @@
 import firebase from "gatsby-plugin-firebase";
 import React, {useContext, useMemo} from "react";
 
+import AdminSignInView from "../components/admin/AdminSignInView";
 import useGoogleSignIn from "../hooks/useGoogleSignIn";
 
 const AdminSignInContext = React.createContext<Readonly<{
@@ -20,7 +21,7 @@ const AdminSignInContext = React.createContext<Readonly<{
 });
 
 type ProviderProps = {
-  children: React.ReactNodeArray | React.ReactElement,
+  children: React.ReactElement,
 };
 
 export function useIsSignedIn(): boolean {
@@ -31,7 +32,7 @@ export function useIsSignedIn(): boolean {
 export function useIsSignedInUserEmailEqualTo(email: string): boolean {
   const {signedInUser} = useContext(AdminSignInContext);
   const signedInUserEmail = signedInUser?.email ?? null;
-  
+
   return signedInUserEmail !== null && signedInUserEmail === email;
 }
 
@@ -74,7 +75,9 @@ export function useAdminSignInProvider() {
           isLoading,
           error,
         }}>
-        {children}
+        <AdminSignInImpl>
+          {children}
+        </AdminSignInImpl>
       </AdminSignInContext.Provider>
     )),
     [
@@ -87,3 +90,33 @@ export function useAdminSignInProvider() {
     ],
   );
 }
+
+function AdminSignInImpl({
+  children
+}: Readonly<{
+  children: React.ReactElement,
+}>): React.ReactElement {
+  const isSignedIn = useIsSignedIn();
+  const isSignedInUserIsaiah = useIsSignedInUserEmailEqualTo('isaiah.c.solomon@gmail.com');
+  const [isLoading] = useSignInLoadingState();
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+  
+  if (!isSignedIn) {
+    return <AdminSignInView />;
+  }
+
+  if (!isSignedInUserIsaiah) {
+    // If somehow someone finds the admin route and tries to log in,
+    // don't allow them to get in.
+    return (
+      <div>
+        Hm... you're not Isaiah?
+      </div>
+    );
+  }
+
+  return children;
+};
