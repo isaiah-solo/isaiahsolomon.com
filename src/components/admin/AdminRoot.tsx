@@ -2,12 +2,17 @@ import React from "react";
 
 import AdminConsoleRoot from "./AdminConsoleRoot";
 import AdminSignInRoot from "./AdminSignInRoot";
-import {useIsSignedIn, useIsSignedInUserEmailEqualTo} from "../../contexts/AdminSignInContext";
+import {useIsSignedIn, useIsSignedInUserEmailEqualTo, useSignInLoadingState} from "../../contexts/AdminSignInContext";
 
 export default function AdminRoot(): React.ReactElement {
   const isSignedIn = useIsSignedIn();
   const isSignedInUserIsaiah = useIsSignedInUserEmailEqualTo('isaiah.c.solomon@gmail.com');
+  const [isLoading] = useSignInLoadingState();
 
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+  
   if (!isSignedIn) {
     return <AdminSignInRoot />;
   }

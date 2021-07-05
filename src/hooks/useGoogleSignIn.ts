@@ -20,11 +20,14 @@ export default function useGoogleSignIn(): [
   const [error, setError] = useState<firebase.FirebaseError | null>(null);
 
   useEffect(() => {
+    setLoading(true);
+    
     firebase.auth()
       .onAuthStateChanged((user) => {
         setSignedInUser(user);
+        setLoading(false);
       });
-  }, [setSignedInUser]);
+  }, [setLoading, setSignedInUser]);
 
   const signIn = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
