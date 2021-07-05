@@ -6,6 +6,7 @@ import 'firebase/auth';
 export default function useGoogleSignIn(): [
   () => void,
   () => void,
+  firebase.User | null,
   boolean,
   boolean,
   firebase.FirebaseError | null
@@ -62,6 +63,7 @@ export default function useGoogleSignIn(): [
   return [
     signIn,
     signOut,
+    signedInUser,
     signedInUser !== null,
     loading,
     error,
