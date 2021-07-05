@@ -47,11 +47,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/admin/*`] },
-    },
-    `gatsby-transformer-remark`,
-    {
       resolve: `gatsby-source-firebase-collections`,
       options: {
         appConfig: {
