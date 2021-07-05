@@ -26,8 +26,11 @@ export default function BlogArticlePage({data}): React.ReactElement {
   return (
     <Layout nav={<AdminNav />} seo={null}>
       <Section
-        subtitle="My (Isaiah's) admin panel for editing my site data, etc."
-        title="Admin Console">
+        subtitle={
+          `This is the editing page for this blog "${title}"'s ` +
+          `data. Use the form below to edit.`
+        }
+        title={`Editing blog "${title}"`}>
         <Card>
           <CardContent>
             <Title2TextInput
