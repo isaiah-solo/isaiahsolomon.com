@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, css} from 'aphrodite';
+import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
 
 import Title1 from "../text/Title1";
 import Paragraph from "../text/Paragraph";
@@ -21,12 +21,14 @@ const styles = StyleSheet.create({
 type Props = {
   children: React.ReactNodeArray | React.ReactElement,
   subtitle?: string | null,
+  styleOverride?: StyleDeclarationValue,
   title?: string | null,
 };
 
 export default function Section({
   children,
   subtitle = null,
+  styleOverride,
   title = null,
 }: Props): React.ReactElement {
   return (
@@ -36,7 +38,7 @@ export default function Section({
           {title !== null && <Title1>{title}</Title1>}
           {subtitle !== null && <Paragraph>{subtitle}</Paragraph>}
         </div>
-        <div>
+        <div className={css(styleOverride)}>
           {children}
         </div>
       </div>
