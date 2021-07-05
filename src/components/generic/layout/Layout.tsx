@@ -29,7 +29,7 @@ type Props = {
   children: React.ReactNodeArray | React.ReactElement,
   footer?: React.ReactElement,
   nav?: React.ReactElement,
-  seo: string,
+  seo: string | null,
 };
 
 export default function Layout({

@@ -1,30 +1,42 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 import firebase from 'gatsby-plugin-firebase';
 import 'firebase/auth';
 
-export default function useGoogleSignIn(
-): [
-    () => void,
-    firebase.auth.UserCredential,
-    boolean,
-    firebase.FirebaseError
-  ] {
-
+export default function useGoogleSignIn(): [
+  () => void,
+  boolean,
+  boolean,
+  firebase.FirebaseError | null
+] {
   const [
     signedInUser,
     setSignedInUser,
-  ] = useState<firebase.auth.UserCredential>();
+  ] = useState<firebase.User | null>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<firebase.FirebaseError>();
+  const [error, setError] = useState<firebase.FirebaseError | null>(null);
+
+  useEffect(() => {
+    firebase.auth()
+      .onAuthStateChanged((user) => {
+        setSignedInUser(user);
+      });
+  }, [setSignedInUser]);
 
   const signIn = async () => {
     setLoading(true);
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
 
-      await firebase.auth().signInWithPopup(provider).then(setSignedInUser);
+      await firebase.auth()
+        .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+        .then(async () => {
+          await firebase.auth()
+            .signInWithPopup(provider).then(userCredential => {
+              setSignedInUser(userCredential.user);
+            });
+        });
 
       setLoading(false);
     } catch (error) {
@@ -35,7 +47,7 @@ export default function useGoogleSignIn(
 
   return [
     signIn,
-    signedInUser,
+    signedInUser !== null,
     loading,
     error,
   ];
