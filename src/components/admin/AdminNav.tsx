@@ -12,7 +12,7 @@ export default function AdminNav(): React.ReactElement {
     <Nav
       leftContent={(
         <SubTitle>
-          Admin Console
+          Placeholder Nav
         </SubTitle>
       )}
       rightContent={(

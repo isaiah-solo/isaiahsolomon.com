@@ -11,7 +11,9 @@ import Title2 from "../generic/text/Title2";
 export default function AdminConsoleRoot(): React.ReactElement {
   return (
     <Layout nav={<AdminNav />} seo={null}>
-      <Section>
+      <Section
+        subtitle="My (Isaiah's) admin panel for editing my site data, etc."
+        title="Admin Console">
         <Card>
           <CardContent>
             <Title2>Title editor</Title2>
