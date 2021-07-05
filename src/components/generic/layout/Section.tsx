@@ -16,6 +16,11 @@ const styles = StyleSheet.create({
     margin: 'auto',
     maxWidth: 920,
   },
+  header: {
+    boxSizing: 'border-box',
+    display: 'grid',
+    gridGap: 16,
+  },
 });
 
 type Props = {
@@ -34,7 +39,7 @@ export default function Section({
   return (
     <div className={css(styles.root)}>
       <div className={css(styles.content)}>
-        <div>
+        <div className={css(styles.header)}>
           {title !== null && <Title1>{title}</Title1>}
           {subtitle !== null && <Paragraph>{subtitle}</Paragraph>}
         </div>
