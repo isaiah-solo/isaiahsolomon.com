@@ -6,11 +6,9 @@ import Nav from "../generic/layout/Nav";
 import RouteLink from "../generic/text/RouteLink";
 import SubTitle from "../generic/text/SubTitle";
 
-type BoxSizing = 'border-box';
-
 const styles = StyleSheet.create({
   row: {
-    boxSizing: 'border-box' as BoxSizing,
+    boxSizing: 'border-box',
     display: 'grid',
     height: 22,
     gridAutoFlow: 'column',

@@ -19,18 +19,27 @@ const styles = StyleSheet.create({
 });
 
 type Props = Readonly<{
+  defaultText?: string | null,
   label: string,
+  onTextChange?: (newText: string) => void,
 }>;
 
 export default function RichTextInput({
+  defaultText,
   label,
+  onTextChange,
 }: Props): React.ReactElement {
   return (
     <div className={css(styles.root)}>
       <SubTitle>{label}</SubTitle>
       <Card>
         <CardContent styleOverride={styles.input}>
-          <Editor defaultValue="Hello world!" onChange={() => { }} />
+          <Editor
+            defaultValue={defaultText}
+            onChange={getValue => {
+              onTextChange?.(getValue());
+            }}
+          />
         </CardContent>
       </Card>
     </div>

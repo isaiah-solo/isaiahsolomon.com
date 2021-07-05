@@ -11,14 +11,12 @@ import Title2 from "../generic/text/Title2";
 
 export const query = graphql`
   fragment BlogPreviewCard on BlogArticles {
-    blogArticlePath: gatsbyPath(filePath: "/blog/{BlogArticles.id}")
     content
     title
   }
 `
 
 export type BlogPreviewCardNode = Readonly<{
-  blogArticlePath: string,
   content: string,
   id: string,
   title: string,
@@ -26,12 +24,14 @@ export type BlogPreviewCardNode = Readonly<{
 
 type Props = Readonly<{
   blogArticle: BlogPreviewCardNode,
+  path: string,
 }>
 
 export default function BlogPreviewCard({
-  blogArticle
+  blogArticle,
+  path,
 }: Props): React.ReactElement {
-  const {blogArticlePath, content, title} = blogArticle;
+  const {content, title} = blogArticle;
 
   return (
     <Card>
@@ -41,7 +41,7 @@ export default function BlogPreviewCard({
       </CardContent>
       <CardFooter
         primaryCTA={(
-          <RouteLink to={blogArticlePath}>
+          <RouteLink to={path}>
             <FlatButton>GO TO FULL ARTICLE</FlatButton>
           </RouteLink>
         )}

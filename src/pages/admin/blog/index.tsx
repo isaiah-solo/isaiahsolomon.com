@@ -2,17 +2,16 @@ import React from "react";
 import {StyleSheet} from "aphrodite";
 import {graphql} from "gatsby";
 
-import BlogNav from '../../components/blog/BlogNav';
-import BlogPreviewCard, {BlogPreviewCardNode} from "../../components/blog/BlogPreviewCard";
-import Footer from '../../components/generic/layout/Footer';
-import Layout from "../../components/generic/layout/Layout";
-import Section from "../../components/generic/layout/Section";
+import BlogPreviewCard, {BlogPreviewCardNode} from "../../../components/blog/BlogPreviewCard";
+import Layout from "../../../components/generic/layout/Layout";
+import Section from "../../../components/generic/layout/Section";
+import AdminNav from "../../../components/admin/AdminNav";
 
 export const query = graphql`
   query {
     allBlogArticles {
       nodes {
-        blogArticlePath: gatsbyPath(filePath: "/blog/{BlogArticles.id}")
+        blogArticlePath: gatsbyPath(filePath: "/admin/blog/{BlogArticles.id}")
         id
         ...BlogPreviewCard
       }
@@ -40,7 +39,7 @@ type Props = Readonly<{
   }>,
 }>;
 
-export default function BlogPage({
+export default function AdminBlogPage({
   data
 }: Props): React.ReactElement {
   const blogArticles = data.allBlogArticles.nodes;
@@ -54,13 +53,8 @@ export default function BlogPage({
 
   return (
     <Layout
-      footer={(
-        <Section>
-          <Footer />
-        </Section>
-      )}
-      nav={<BlogNav />}
-      seo="Blog">
+      nav={<AdminNav />}
+      seo={null}>
       <Section
         styleOverride={styles.cards}
         subtitle="Where I post my top-of-mind articles."
@@ -69,4 +63,4 @@ export default function BlogPage({
       </Section>
     </Layout>
   );
-}
+};
