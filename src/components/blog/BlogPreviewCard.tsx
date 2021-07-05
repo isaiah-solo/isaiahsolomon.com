@@ -24,11 +24,13 @@ export type BlogPreviewCardNode = Readonly<{
 
 type Props = Readonly<{
   blogArticle: BlogPreviewCardNode,
+  linkText: string,
   path: string,
 }>
 
 export default function BlogPreviewCard({
   blogArticle,
+  linkText,
   path,
 }: Props): React.ReactElement {
   const {content, title} = blogArticle;
@@ -42,7 +44,7 @@ export default function BlogPreviewCard({
       <CardFooter
         primaryCTA={(
           <RouteLink to={path}>
-            <FlatButton>GO TO FULL ARTICLE</FlatButton>
+            <FlatButton>{linkText}</FlatButton>
           </RouteLink>
         )}
       />

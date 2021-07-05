@@ -48,6 +48,7 @@ export default function BlogPage({
     <BlogPreviewCard
       blogArticle={blogArticle}
       key={blogArticle.id}
+      linkText="GO TO FULL ARTICLE"
       path={blogArticle.blogArticlePath}
     />
   ));

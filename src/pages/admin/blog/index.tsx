@@ -50,6 +50,7 @@ export default function AdminBlogPage({
     <BlogPreviewCard
       blogArticle={blogArticle}
       key={blogArticle.id}
+      linkText="EDIT BLOG"
       path={blogArticle.blogArticlePath}
     />
   ));
@@ -61,8 +62,8 @@ export default function AdminBlogPage({
         seo="Admin">
         <Section
           styleOverride={styles.cards}
-          subtitle="Where I post my top-of-mind articles."
-          title="Blog">
+          subtitle="Choose a blog to edit."
+          title="Blog articles to edit">
           {blogArticleCards}
         </Section>
       </Layout>
