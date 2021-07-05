@@ -9,7 +9,7 @@ export default function AdminRoot(): React.ReactElement {
   const isSignedInUserIsaiah = useIsSignedInUserEmailEqualTo('isaiah.c.solomon@gmail.com');
   const [isLoading] = useSignInLoadingState();
 
-  if (isLoading) {
+  if (isLoading && !isSignedIn) {
     return <div>Loading...</div>
   }
   
