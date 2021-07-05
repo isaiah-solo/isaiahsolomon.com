@@ -58,7 +58,7 @@ export default function AdminBlogPage({
     <AdminSignInProvider>
       <Layout
         nav={<AdminNav />}
-        seo="Admin | Isaiah">
+        seo="Admin">
         <Section
           styleOverride={styles.cards}
           subtitle="Where I post my top-of-mind articles."

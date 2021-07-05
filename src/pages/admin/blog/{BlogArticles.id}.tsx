@@ -30,7 +30,7 @@ export default function BlogArticlePage({data}): React.ReactElement {
     <AdminSignInProvider>
       <Layout
         nav={<AdminNav />}
-        seo="Admin | Isaiah">
+        seo="Admin">
         <Section
           subtitle={
             `This is the editing page for this blog "${title}"'s ` +

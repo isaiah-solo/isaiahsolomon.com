@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
   row: {
     boxSizing: 'border-box',
     display: 'grid',
-    height: 22,
     gridAutoFlow: 'column',
     gridGap: 12,
   },
@@ -27,18 +26,22 @@ export default function AdminNav(): React.ReactElement {
           <RouteLink to="/admin">
             <SubTitle>Home</SubTitle>
           </RouteLink>
-          <RouteLink to="/">
-            <SubTitle>Public</SubTitle>
-          </RouteLink>
           <RouteLink to="/admin/blog">
             <SubTitle>Blog</SubTitle>
           </RouteLink>
         </div>
       )}
       rightContent={(
-        <FlatButton onClick={signOut}>
-          Sign Out
-        </FlatButton>
+        <div className={css(styles.row)}>
+          <RouteLink to="/">
+            <FlatButton>
+              Go to Public
+            </FlatButton>
+          </RouteLink>
+          <FlatButton onClick={signOut}>
+            Sign Out
+          </FlatButton>
+        </div>
       )}
     />
   );

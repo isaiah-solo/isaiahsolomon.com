@@ -14,7 +14,7 @@ export default function AdminPage(): React.ReactElement {
     <AdminSignInProvider>
       <Layout
         nav={<AdminNav />}
-        seo="Admin | Isaiah">
+        seo="Admin">
         <Section
           subtitle="My (Isaiah's) admin panel for editing my site data, etc."
           title="Admin Console">
