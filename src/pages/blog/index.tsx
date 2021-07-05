@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
 
 export default function BlogPage({data}): React.ReactElement {
   const blogArticles = data.allBlogArticles.nodes;
-  console.log(blogArticles);
   const blogArticleCards = blogArticles.map(({
     blogArticlePath,
     content,
