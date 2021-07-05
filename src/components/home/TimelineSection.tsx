@@ -1,7 +1,7 @@
 import React from "react";
 import {css, StyleDeclarationValue, StyleSheet} from 'aphrodite';
 
-import Title1 from "../generic/text/Title1";
+import Title2 from "../generic/text/Title2";
 import Paragraph from "../generic/text/Paragraph";
 
 const styles = StyleSheet.create({
@@ -38,7 +38,7 @@ export default function TimelineSection({
   return (
     <div className={css(styles.root, styleOverride)}>
       <div>
-        {title !== null && <Title1>{title}</Title1>}
+        {title !== null && <Title2>{title}</Title2>}
         {subtitle !== null && <Paragraph>{subtitle}</Paragraph>}
       </div>
       <div className={css(styles.content)}>
