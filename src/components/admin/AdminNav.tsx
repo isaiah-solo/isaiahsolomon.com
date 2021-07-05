@@ -27,6 +27,9 @@ export default function AdminNav(): React.ReactElement {
           <RouteLink to="/admin">
             <SubTitle>Home</SubTitle>
           </RouteLink>
+          <RouteLink to="/">
+            <SubTitle>Public</SubTitle>
+          </RouteLink>
           <RouteLink to="/admin/blog">
             <SubTitle>Blog</SubTitle>
           </RouteLink>
