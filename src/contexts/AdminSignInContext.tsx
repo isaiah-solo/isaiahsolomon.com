@@ -2,6 +2,7 @@ import firebase from "gatsby-plugin-firebase";
 import React, {useContext, useMemo} from "react";
 
 import AdminSignInView from "../components/admin/AdminSignInView";
+import FlatButton from "../components/generic/button/FlatButton";
 import useGoogleSignIn from "../hooks/useGoogleSignIn";
 
 const AdminSignInContext = React.createContext<Readonly<{
@@ -98,6 +99,7 @@ function AdminSignInImpl({
 }>): React.ReactElement {
   const isSignedIn = useIsSignedIn();
   const isSignedInUserIsaiah = useIsSignedInUserEmailEqualTo('isaiah.c.solomon@gmail.com');
+  const signOut = useSignOutCallback();
   const [isLoading] = useSignInLoadingState();
 
   if (isLoading) {
@@ -113,7 +115,8 @@ function AdminSignInImpl({
     // don't allow them to get in.
     return (
       <div>
-        Hm... you're not Isaiah?
+        <div>Hm... you're not Isaiah?</div>
+        <FlatButton onClick={signOut}>Sign Out</FlatButton>
       </div>
     );
   }
