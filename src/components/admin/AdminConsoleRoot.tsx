@@ -6,6 +6,7 @@ import CardContent from "../generic/card/CardContent";
 import Layout from "../generic/layout/Layout";
 import RichTextInput from "../generic/input/RichTextInput";
 import Section from "../generic/layout/Section";
+import Title2 from "../generic/text/Title2";
 
 export default function AdminConsoleRoot(): React.ReactElement {
   return (
@@ -13,6 +14,7 @@ export default function AdminConsoleRoot(): React.ReactElement {
       <Section>
         <Card>
           <CardContent>
+            <Title2>Title editor</Title2>
             <RichTextInput />
           </CardContent>
         </Card>

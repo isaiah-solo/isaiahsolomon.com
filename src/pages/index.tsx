@@ -6,8 +6,6 @@ import Layout from "../components/generic/layout/Layout";
 import Section from "../components/generic/layout/Section";
 
 import Paragraph from "../components/generic/text/Paragraph";
-import SubTitle from "../components/generic/text/SubTitle";
-import Title2 from "../components/generic/text/Title2";
 
 import HomeCover from "../components/home/HomeCover";
 import HomeNav from '../components/home/HomeNav';
@@ -15,6 +13,7 @@ import HomeScrollIndicator from "../components/home/HomeScrollIndicator";
 import Timeline from "../components/home/Timeline";
 
 import {useMobileProvider} from "../contexts/MobileContext";
+import TimelineSection from "../components/home/TimelineSection";
 
 const styles = StyleSheet.create({
   indicatorMargin: {
@@ -44,9 +43,9 @@ export default function HomePage(): React.ReactElement {
           subtitle="Below are my various professional work experiences and education! Please have a look."
           title="Experience">
           <Timeline>
-            <div>
-              <Title2>Facebook</Title2>
-              <SubTitle>Software Engineer &middot; Jun 2018 - Present</SubTitle>
+            <TimelineSection
+              subtitle="Software Engineer &middot; Jun 2018 - Present"
+              title="Facebook">
               <Paragraph>
                 Led development of large-scale projects from beginning to go-live<br />
                 - Internal application redesign<br />
@@ -55,20 +54,20 @@ export default function HomePage(): React.ReactElement {
               <Paragraph>
                 Initially started out as a contractor, converting to full-time within a quick 4 months, in which I successfully built our project's email client end-to-end, handling complex cases and functionalities.
               </Paragraph>
-            </div>
-            <div>
-              <Title2>Williams-Sonoma</Title2>
-              <SubTitle>Software Engineer &middot; Mar 2018 - Jun 2018</SubTitle>
+            </TimelineSection>
+            <TimelineSection
+              subtitle="Software Engineer &middot; Mar 2018 - Jun 2018"
+              title="Williams-Sonoma">
               <Paragraph>
                 Managed the enterprise-scale analytics tagging codebase existing in all of the six sites under Williams-Sonoma.
               </Paragraph>
               <Paragraph>
                 Introduced site metric tracking and improved site speed by refactoring inefficient code.
               </Paragraph>
-            </div>
-            <div>
-              <Title2>X2CRM | X2Engine</Title2>
-              <SubTitle>Software Engineer &middot; Nov 2016 - Mar 2018</SubTitle>
+            </TimelineSection>
+            <TimelineSection
+              subtitle="Software Engineer &middot; Nov 2016 - Mar 2018"
+              title="X2CRM | X2Engine">
               <Paragraph>
                 One of the core developers in landing one of our company's first big enterprise customers.
               </Paragraph>
@@ -78,10 +77,10 @@ export default function HomePage(): React.ReactElement {
               <Paragraph>
                 Handled the production process for new versions of the application and developed various internal scripts to automate and optimize productivity.
               </Paragraph>
-            </div>
-            <div>
-              <Title2>College | University of California, Santa Cruz</Title2>
-              <SubTitle>Student &middot; Sep 2013 - Jun 2017</SubTitle>
+            </TimelineSection>
+            <TimelineSection
+              subtitle="Student &middot; Sep 2013 - Jun 2017"
+              title="College | University of California, Santa Cruz">
               <Paragraph>
                 Graduated with a B.S. in Computer Science.
               </Paragraph>
@@ -91,14 +90,14 @@ export default function HomePage(): React.ReactElement {
               <Paragraph>
                 Ran the Alpha Phi Omega website as webmaster and active member.
               </Paragraph>
-            </div>
-            <div>
-              <Title2>High School | Concord High School</Title2>
-              <SubTitle>Student &middot; Sep 2009 - Jun 2013</SubTitle>
+            </TimelineSection>
+            <TimelineSection
+              subtitle="Student &middot; Sep 2009 - Jun 2013"
+              title="High School | Concord High School">
               <Paragraph>
                 Graduated with a 3.3 GPA.
               </Paragraph>
-            </div>
+            </TimelineSection>
           </Timeline>
         </Section>
       </Layout>

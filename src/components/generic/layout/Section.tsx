@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   content: {
     boxSizing: 'border-box',
     display: 'grid',
-    gridGap: 20,
+    gridGap: 16,
     margin: 'auto',
     maxWidth: 920,
   },

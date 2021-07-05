@@ -10,7 +10,9 @@ type Props = {
 
 const styles = StyleSheet.create({
   root: {
+    display: 'block',
     marginBottom: 0,
+    marginTop: 0,
   },
 });
 

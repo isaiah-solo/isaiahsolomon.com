@@ -6,18 +6,10 @@ import Card from "../card/Card";
 import CardContent from "../card/CardContent";
 
 const styles = StyleSheet.create({
-  root: {
-    borderRadius: 4,
-    border: '1px solid rgba(0, 0, 0, 0.12)',
+  editor: {
     boxSizing: 'border-box',
-    background: 'white',
+    paddingLeft: 32,
   },
-  hovered: {
-    ':hover': {
-      backgroundColor: '#f6f6f6',
-      cursor: 'pointer',
-    }
-  }
 });
 
 type Props = {
@@ -29,7 +21,7 @@ export default function RichTextInput({
 }: Props): React.ReactElement {
   return (
     <Card>
-      <CardContent>
+      <CardContent styleOverride={styles.editor}>
         <Editor defaultValue="Hello world!" onChange={() => { }} />
       </CardContent>
     </Card>

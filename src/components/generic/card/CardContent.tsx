@@ -6,6 +6,8 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 4,
     borderTopRightRadius: 4,
     boxSizing: 'border-box',
+    display: 'grid',
+    gridGap: 16,
     padding: 16,
   },
 });
