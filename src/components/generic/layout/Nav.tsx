@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     boxSizing: 'border-box',
   },
   content: {
+    alignItems: 'center',
     boxSizing: 'border-box',
     display: 'flex',
     height: 'fit-content',
@@ -29,8 +30,8 @@ export default function Nav({
   return (
     <header className={css(styles.root)}>
       <div className={css(styles.content)}>
-        {leftContent}
-        {rightContent}
+        {leftContent ?? <div />}
+        {rightContent ?? <div />}
       </div>
     </header>
   );

@@ -5,6 +5,7 @@ import 'firebase/auth';
 
 export default function useGoogleSignIn(): [
   () => void,
+  () => void,
   boolean,
   boolean,
   firebase.FirebaseError | null
@@ -25,28 +26,42 @@ export default function useGoogleSignIn(): [
   }, [setSignedInUser]);
 
   const signIn = async () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+
     setLoading(true);
-    try {
-      const provider = new firebase.auth.GoogleAuthProvider();
 
-      await firebase.auth()
-        .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-        .then(async () => {
-          await firebase.auth()
-            .signInWithPopup(provider).then(userCredential => {
-              setSignedInUser(userCredential.user);
-            });
-        });
+    await firebase.auth()
+      .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+      .then(async () => {
+        await firebase.auth()
+          .signInWithPopup(provider).then(userCredential => {
+            setSignedInUser(userCredential.user);
+          })
+          .catch(error => {
+            setError(error);
+            setLoading(false);
+          });
+      })
+      .catch(error => {
+        setError(error);
+        setLoading(false);
+      });
+  };
 
-      setLoading(false);
-    } catch (error) {
-      setError(error);
-      setLoading(false);
-    }
+  const signOut = async () => {
+    await firebase.auth()
+      .signOut()
+      .catch(error => {
+        setError(error);
+        setLoading(false);
+      });
+
+    setLoading(false);
   };
 
   return [
     signIn,
+    signOut,
     signedInUser !== null,
     loading,
     error,

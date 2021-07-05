@@ -5,11 +5,13 @@ import useGoogleSignIn from "../hooks/useGoogleSignIn";
 
 const AdminSignInContext = React.createContext<Readonly<{
   signIn: () => void,
+  signOut: () => void,
   isSignedIn: boolean,
   isLoading: boolean,
   error: firebase.FirebaseError | null
 }>>({
   signIn: (): void => { },
+  signOut: (): void => { },
   isSignedIn: false,
   isLoading: false,
   error: null
@@ -29,6 +31,11 @@ export function useSignInCallback(): (() => void) {
   return signIn;
 }
 
+export function useSignOutCallback(): (() => void) {
+  const {signOut} = useContext(AdminSignInContext);
+  return signOut;
+}
+
 export function useSignInLoadingState(): [
   boolean,
   firebase.FirebaseError | null,
@@ -38,15 +45,21 @@ export function useSignInLoadingState(): [
 }
 
 export function useAdminSignInProvider() {
-  const [signIn, isSignedIn, isLoading, error] = useGoogleSignIn();
+  const [
+    signIn,
+    signOut,
+    isSignedIn,
+    isLoading,
+    error,
+  ] = useGoogleSignIn();
 
   return useMemo(() => (
     ({children}: ProviderProps): React.ReactElement => (
       <AdminSignInContext.Provider
-        value={{signIn, isSignedIn, isLoading, error}}>
+        value={{signIn, signOut, isSignedIn, isLoading, error}}>
         {children}
       </AdminSignInContext.Provider>
     )),
-    [signIn, isSignedIn, isLoading, error],
+    [signIn, signOut, isSignedIn, isLoading, error],
   );
 }
