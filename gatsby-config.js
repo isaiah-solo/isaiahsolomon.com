@@ -69,8 +69,8 @@ module.exports = {
             collection: `blog_articles`,
             map: doc => ({
               content: doc.content,
-              createdDate: doc.created_date.seconds,
-              lastUpdatedDate: doc.last_updated_date.seconds,
+              created_date: doc.created_date.seconds,
+              last_updated_date: doc.last_updated_date.seconds,
               title: doc.title
             }),
           },

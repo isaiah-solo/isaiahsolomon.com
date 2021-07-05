@@ -17,7 +17,7 @@ export const query = graphql`
       nodes {
         blogArticlePath: gatsbyPath(filePath: "/blog/{BlogArticles.id}")
         content
-        createdDate
+        createdDate: created_date
         title
       }
     }
