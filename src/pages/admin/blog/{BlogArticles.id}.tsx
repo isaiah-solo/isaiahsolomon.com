@@ -6,7 +6,7 @@ import Section from '../../../components/generic/layout/Section';
 import Card from '../../../components/generic/card/Card';
 import CardContent from '../../../components/generic/card/CardContent';
 import Title2TextInput from '../../../components/generic/input/Title2TextInput';
-import RichTextInput from '../../../components/generic/input/RichTextInput';
+import MarkdownInput from '../../../components/generic/input/MarkdownInput';
 import CardFormFooter from '../../../components/generic/card/CardFormFooter';
 import SubmitButton from '../../../components/generic/button/SubmitButton';
 import AdminNav from '../../../components/admin/AdminNav';
@@ -50,7 +50,7 @@ export default function BlogArticlePage({data}): React.ReactElement {
                 setText={setNewTitle}
                 text={newTitle}
               />
-              <RichTextInput
+              <MarkdownInput
                 defaultText={newContent}
                 label="Content"
                 onTextChange={setNewContent}

@@ -24,7 +24,7 @@ type Props = Readonly<{
   onTextChange?: (newText: string) => void;
 }>;
 
-export default function RichTextInput({
+export default function MarkdownInput({
   defaultText,
   label,
   onTextChange,

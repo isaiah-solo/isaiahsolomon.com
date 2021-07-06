@@ -1,5 +1,5 @@
 import firebase from 'gatsby-plugin-firebase';
-import React, {useContext, useMemo} from 'react';
+import React, {useContext} from 'react';
 
 import AdminSignInView from '../components/admin/AdminSignInView';
 import FlatButton from '../components/generic/button/FlatButton';

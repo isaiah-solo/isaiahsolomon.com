@@ -28,11 +28,7 @@ export default function HomePage(): React.ReactElement {
   return (
     <MobileProvider>
       <Layout
-        footer={
-          <Section>
-            <Footer />
-          </Section>
-        }
+        footer={<Footer />}
         nav={<HomeNav />}
         seo="Home">
         <Section>

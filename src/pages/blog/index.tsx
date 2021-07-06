@@ -55,11 +55,7 @@ export default function BlogPage({data}: Props): React.ReactElement {
 
   return (
     <Layout
-      footer={
-        <Section>
-          <Footer />
-        </Section>
-      }
+      footer={<Footer />}
       nav={<BlogNav />}
       seo="Blog">
       <Section
