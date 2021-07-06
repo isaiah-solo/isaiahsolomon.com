@@ -3,11 +3,8 @@ import React, {useContext, useMemo} from 'react';
 
 import AdminSignInView from '../components/admin/AdminSignInView';
 import FlatButton from '../components/generic/button/FlatButton';
-import Layout from '../components/generic/layout/Layout';
-import Skeleton from 'react-loading-skeleton';
 import useGoogleSignIn from '../hooks/useGoogleSignIn';
-import Section from '../components/generic/layout/Section';
-import Nav from '../components/generic/layout/Nav';
+import PageSkeleton from '../components/generic/skeleton/PageSkeleton';
 
 const AdminSignInContext = React.createContext<
   Readonly<{
@@ -19,8 +16,8 @@ const AdminSignInContext = React.createContext<
     error: firebase.FirebaseError | null;
   }>
 >({
-  signIn: (): void => {},
-  signOut: (): void => {},
+  signIn: (): void => { },
+  signOut: (): void => { },
   signedInUser: null,
   isSignedIn: false,
   isLoading: false,
@@ -99,28 +96,7 @@ function AdminSignInImpl({
   const [isLoading] = useSignInLoadingState();
 
   if (isLoading) {
-    return (
-      <Layout
-        nav={
-          <Nav
-            leftContent={
-              <div style={{width: 100}}>
-                <Skeleton />
-              </div>
-            }
-            rightContent={
-              <div style={{width: 200}}>
-                <Skeleton />
-              </div>
-            }
-          />
-        }
-        seo="Loading">
-        <Section>
-          <Skeleton />
-        </Section>
-      </Layout>
-    );
+    return <PageSkeleton />;
   }
 
   if (!isSignedIn) {
