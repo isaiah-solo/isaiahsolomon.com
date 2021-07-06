@@ -1,5 +1,5 @@
-import React from 'react'
-import {StyleSheet, css} from 'aphrodite'
+import React from 'react';
+import {StyleSheet, css} from 'aphrodite';
 
 const styles = StyleSheet.create({
   root: {
@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     margin: 'auto',
     width: 4,
   },
-})
+});
 
 export default function TimelineLine(): React.ReactElement {
-  return <div className={css(styles.root)} />
+  return <div className={css(styles.root)} />;
 }

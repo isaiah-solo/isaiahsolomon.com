@@ -1,6 +1,6 @@
-import React from 'react'
-import {Link as GatsbyLink} from 'gatsby'
-import {StyleSheet, css} from 'aphrodite'
+import React from 'react';
+import {Link as GatsbyLink} from 'gatsby';
+import {StyleSheet, css} from 'aphrodite';
 
 const styles = StyleSheet.create({
   root: {
@@ -8,17 +8,17 @@ const styles = StyleSheet.create({
     display: 'block',
     textDecoration: 'none',
   },
-})
+});
 
 type Props = Readonly<{
-  children: React.ReactElement | string
-  to: string
-}>
+  children: React.ReactElement | string;
+  to: string;
+}>;
 
 export default function RouteLink({children, to}: Props): React.ReactElement {
   return (
     <GatsbyLink className={css(styles.root)} to={to}>
       {children}
     </GatsbyLink>
-  )
+  );
 }

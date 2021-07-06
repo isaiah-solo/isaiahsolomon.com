@@ -1,18 +1,22 @@
-import firebase from 'gatsby-plugin-firebase'
-import React, {useContext, useMemo} from 'react'
+import firebase from 'gatsby-plugin-firebase';
+import React, {useContext, useMemo} from 'react';
 
-import AdminSignInView from '../components/admin/AdminSignInView'
-import FlatButton from '../components/generic/button/FlatButton'
-import useGoogleSignIn from '../hooks/useGoogleSignIn'
+import AdminSignInView from '../components/admin/AdminSignInView';
+import FlatButton from '../components/generic/button/FlatButton';
+import Layout from '../components/generic/layout/Layout';
+import Skeleton from 'react-loading-skeleton';
+import useGoogleSignIn from '../hooks/useGoogleSignIn';
+import Section from '../components/generic/layout/Section';
+import Nav from '../components/generic/layout/Nav';
 
 const AdminSignInContext = React.createContext<
   Readonly<{
-    signIn: () => void
-    signOut: () => void
-    signedInUser: firebase.User | null
-    isSignedIn: boolean
-    isLoading: boolean
-    error: firebase.FirebaseError | null
+    signIn: () => void;
+    signOut: () => void;
+    signedInUser: firebase.User | null;
+    isSignedIn: boolean;
+    isLoading: boolean;
+    error: firebase.FirebaseError | null;
   }>
 >({
   signIn: (): void => {},
@@ -21,40 +25,40 @@ const AdminSignInContext = React.createContext<
   isSignedIn: false,
   isLoading: false,
   error: null,
-})
+});
 
 type ProviderProps = {
-  children: React.ReactElement
-}
+  children: React.ReactElement;
+};
 
 export function useIsSignedIn(): boolean {
-  const {isSignedIn} = useContext(AdminSignInContext)
-  return isSignedIn
+  const {isSignedIn} = useContext(AdminSignInContext);
+  return isSignedIn;
 }
 
 export function useIsSignedInUserEmailEqualTo(email: string): boolean {
-  const {signedInUser} = useContext(AdminSignInContext)
-  const signedInUserEmail = signedInUser?.email ?? null
+  const {signedInUser} = useContext(AdminSignInContext);
+  const signedInUserEmail = signedInUser?.email ?? null;
 
-  return signedInUserEmail !== null && signedInUserEmail === email
+  return signedInUserEmail !== null && signedInUserEmail === email;
 }
 
 export function useSignInCallback(): () => void {
-  const {signIn} = useContext(AdminSignInContext)
-  return signIn
+  const {signIn} = useContext(AdminSignInContext);
+  return signIn;
 }
 
 export function useSignOutCallback(): () => void {
-  const {signOut} = useContext(AdminSignInContext)
-  return signOut
+  const {signOut} = useContext(AdminSignInContext);
+  return signOut;
 }
 
 export function useSignInLoadingState(): [
   boolean,
   firebase.FirebaseError | null,
 ] {
-  const {isLoading, error} = useContext(AdminSignInContext)
-  return [isLoading, error]
+  const {isLoading, error} = useContext(AdminSignInContext);
+  return [isLoading, error];
 }
 
 export function AdminSignInProvider({children}: ProviderProps) {
@@ -65,7 +69,7 @@ export function AdminSignInProvider({children}: ProviderProps) {
     isSignedIn,
     isLoading,
     error,
-  ] = useGoogleSignIn()
+  ] = useGoogleSignIn();
 
   return (
     <AdminSignInContext.Provider
@@ -79,27 +83,48 @@ export function AdminSignInProvider({children}: ProviderProps) {
       }}>
       <AdminSignInImpl>{children}</AdminSignInImpl>
     </AdminSignInContext.Provider>
-  )
+  );
 }
 
 function AdminSignInImpl({
   children,
 }: Readonly<{
-  children: React.ReactElement
+  children: React.ReactElement;
 }>): React.ReactElement {
-  const isSignedIn = useIsSignedIn()
+  const isSignedIn = useIsSignedIn();
   const isSignedInUserIsaiah = useIsSignedInUserEmailEqualTo(
     'isaiah.c.solomon@gmail.com',
-  )
-  const signOut = useSignOutCallback()
-  const [isLoading] = useSignInLoadingState()
+  );
+  const signOut = useSignOutCallback();
+  const [isLoading] = useSignInLoadingState();
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return (
+      <Layout
+        nav={
+          <Nav
+            leftContent={
+              <div style={{width: 100}}>
+                <Skeleton />
+              </div>
+            }
+            rightContent={
+              <div style={{width: 200}}>
+                <Skeleton />
+              </div>
+            }
+          />
+        }
+        seo="Loading">
+        <Section>
+          <Skeleton />
+        </Section>
+      </Layout>
+    );
   }
 
   if (!isSignedIn) {
-    return <AdminSignInView />
+    return <AdminSignInView />;
   }
 
   if (!isSignedInUserIsaiah) {
@@ -110,8 +135,8 @@ function AdminSignInImpl({
         <div>Hm... you're not Isaiah?</div>
         <FlatButton onClick={signOut}>Sign Out</FlatButton>
       </div>
-    )
+    );
   }
 
-  return children
+  return children;
 }

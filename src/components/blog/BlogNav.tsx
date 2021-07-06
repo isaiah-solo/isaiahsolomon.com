@@ -1,10 +1,10 @@
-import React from 'react'
-import {StyleSheet, css} from 'aphrodite'
+import React from 'react';
+import {StyleSheet, css} from 'aphrodite';
 
-import Nav from '../generic/layout/Nav'
+import Nav from '../generic/layout/Nav';
 
-import RouteLink from '../generic/text/RouteLink'
-import SubTitle from '../generic/text/SubTitle'
+import RouteLink from '../generic/text/RouteLink';
+import SubTitle from '../generic/text/SubTitle';
 
 const styles = StyleSheet.create({
   row: {
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     gridAutoFlow: 'column',
     gridGap: 12,
   },
-})
+});
 
 export default function BlogNav(): React.ReactElement {
   return (
@@ -30,5 +30,5 @@ export default function BlogNav(): React.ReactElement {
         </div>
       }
     />
-  )
+  );
 }

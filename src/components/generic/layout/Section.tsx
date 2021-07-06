@@ -1,8 +1,8 @@
-import React from 'react'
-import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite'
+import React from 'react';
+import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
 
-import Title1 from '../text/Title1'
-import Paragraph from '../text/Paragraph'
+import Title1 from '../text/Title1';
+import Paragraph from '../text/Paragraph';
 
 const styles = StyleSheet.create({
   root: {
@@ -21,14 +21,14 @@ const styles = StyleSheet.create({
     display: 'grid',
     gridGap: 16,
   },
-})
+});
 
 type Props = Readonly<{
-  children: React.ReactNodeArray | React.ReactElement
-  subtitle?: string | null
-  styleOverride?: StyleDeclarationValue
-  title?: string | null
-}>
+  children: React.ReactNodeArray | React.ReactElement;
+  subtitle?: string | null;
+  styleOverride?: StyleDeclarationValue;
+  title?: string | null;
+}>;
 
 export default function Section({
   children,
@@ -46,5 +46,5 @@ export default function Section({
         <div className={css(styleOverride)}>{children}</div>
       </div>
     </div>
-  )
+  );
 }

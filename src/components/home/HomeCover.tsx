@@ -1,13 +1,13 @@
-import React from 'react'
-import {StyleSheet, css} from 'aphrodite'
+import React from 'react';
+import {StyleSheet, css} from 'aphrodite';
 
-import Title1 from '../generic/text/Title1'
-import Paragraph from '../generic/text/Paragraph'
+import Title1 from '../generic/text/Title1';
+import Paragraph from '../generic/text/Paragraph';
 
-import MobileProfileImage from '../generic/image/MobileProfileImage'
-import WebProfileImage from '../generic/image/WebProfileImage'
+import MobileProfileImage from '../generic/image/MobileProfileImage';
+import WebProfileImage from '../generic/image/WebProfileImage';
 
-import {useIsMobile} from '../../contexts/MobileContext'
+import {useIsMobile} from '../../contexts/MobileContext';
 
 const styles = StyleSheet.create({
   root: {
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     height: '100%',
   },
-})
+});
 
 const mobileStyles = StyleSheet.create({
   body: {
@@ -45,10 +45,10 @@ const mobileStyles = StyleSheet.create({
     gridAutoFlow: 'row',
     width: '100%',
   },
-})
+});
 
 export default function HomeCover(): React.ReactElement {
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile();
 
   if (isMobile) {
     return (
@@ -64,7 +64,7 @@ export default function HomeCover(): React.ReactElement {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -80,5 +80,5 @@ export default function HomeCover(): React.ReactElement {
         <WebProfileImage />
       </div>
     </div>
-  )
+  );
 }

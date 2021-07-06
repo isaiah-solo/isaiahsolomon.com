@@ -1,4 +1,4 @@
-import {StyleSheet} from 'aphrodite'
+import {StyleSheet} from 'aphrodite';
 
 const styles = StyleSheet.create({
   root: {
@@ -12,9 +12,9 @@ const styles = StyleSheet.create({
   secondary: {
     color: 'rgba(0, 0, 0, 0.6)',
   },
-})
+});
 
 export default {
   primary: [styles.root, styles.primary],
   secondary: [styles.root, styles.secondary],
-}
+};

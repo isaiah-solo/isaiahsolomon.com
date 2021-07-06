@@ -1,5 +1,5 @@
-import React from 'react'
-import {StyleSheet, css} from 'aphrodite'
+import React from 'react';
+import {StyleSheet, css} from 'aphrodite';
 
 const styles = StyleSheet.create({
   root: {
@@ -8,13 +8,13 @@ const styles = StyleSheet.create({
     display: 'inline',
     textDecoration: 'none',
   },
-})
+});
 
 type Props = Readonly<{
-  children: React.ReactElement | string
-  styles?: Object
-  href: string
-}>
+  children: React.ReactElement | string;
+  styles?: Object;
+  href: string;
+}>;
 
 export default function Link({
   children,
@@ -29,5 +29,5 @@ export default function Link({
       target="_blank">
       {children}
     </a>
-  )
+  );
 }

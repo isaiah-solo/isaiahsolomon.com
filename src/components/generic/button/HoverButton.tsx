@@ -1,5 +1,5 @@
-import React from 'react'
-import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite'
+import React from 'react';
+import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
 
 const styles = StyleSheet.create({
   root: {
@@ -9,15 +9,15 @@ const styles = StyleSheet.create({
     cursor: 'pointer',
     padding: 0,
   },
-})
+});
 
 type Props = Readonly<{
-  children?: React.ReactElement | string
-  onClick: () => void
-  onMouseEnter?: () => void
-  onMouseLeave?: () => void
-  styleOverride?: StyleDeclarationValue
-}>
+  children?: React.ReactElement | string;
+  onClick: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  styleOverride?: StyleDeclarationValue;
+}>;
 
 const HoverButton = (
   {children, onClick, onMouseEnter, onMouseLeave, styleOverride}: Props,
@@ -32,7 +32,7 @@ const HoverButton = (
       ref={ref}>
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default React.forwardRef(HoverButton)
+export default React.forwardRef(HoverButton);

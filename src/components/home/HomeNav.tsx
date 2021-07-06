@@ -1,15 +1,15 @@
-import React, {useState} from 'react'
-import {StyleSheet, css} from 'aphrodite'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faGithubSquare, faLinkedin} from '@fortawesome/free-brands-svg-icons'
+import React, {useState} from 'react';
+import {StyleSheet, css} from 'aphrodite';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faGithubSquare, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 
-import Nav from '../generic/layout/Nav'
+import Nav from '../generic/layout/Nav';
 
-import Link from '../generic/text/Link'
-import RouteLink from '../generic/text/RouteLink'
-import SubTitle from '../generic/text/SubTitle'
+import Link from '../generic/text/Link';
+import RouteLink from '../generic/text/RouteLink';
+import SubTitle from '../generic/text/SubTitle';
 
-type BoxSizing = 'border-box'
+type BoxSizing = 'border-box';
 
 const styles = StyleSheet.create({
   icon: {
@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
     gridAutoFlow: 'column',
     gridGap: 12,
   },
-})
+});
 
 export default function HomeNav(): React.ReactElement {
-  const [contactMeIsHovered, setContactMeIsHovered] = useState(false)
+  const [contactMeIsHovered, setContactMeIsHovered] = useState(false);
 
   return (
     <Nav
@@ -50,10 +50,10 @@ export default function HomeNav(): React.ReactElement {
           <div
             className={css(styles.link)}
             onMouseEnter={(): void => {
-              setContactMeIsHovered(true)
+              setContactMeIsHovered(true);
             }}
             onMouseLeave={(): void => {
-              setContactMeIsHovered(false)
+              setContactMeIsHovered(false);
             }}
             role="none">
             <SubTitle>
@@ -78,5 +78,5 @@ export default function HomeNav(): React.ReactElement {
         </div>
       }
     />
-  )
+  );
 }

@@ -1,11 +1,11 @@
-import React from 'react'
-import {StyleSheet, css} from 'aphrodite'
+import React from 'react';
+import {StyleSheet, css} from 'aphrodite';
 
-import FlatButton from '../generic/button/FlatButton'
-import Nav from '../generic/layout/Nav'
-import SubTitle from '../generic/text/SubTitle'
-import {useSignOutCallback} from '../../contexts/AdminSignInContext'
-import RouteLink from '../generic/text/RouteLink'
+import FlatButton from '../generic/button/FlatButton';
+import Nav from '../generic/layout/Nav';
+import SubTitle from '../generic/text/SubTitle';
+import {useSignOutCallback} from '../../contexts/AdminSignInContext';
+import RouteLink from '../generic/text/RouteLink';
 
 const styles = StyleSheet.create({
   row: {
@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
     gridAutoFlow: 'column',
     gridGap: 12,
   },
-})
+});
 
 export default function AdminNav(): React.ReactElement {
-  const signOut = useSignOutCallback()
+  const signOut = useSignOutCallback();
 
   return (
     <Nav
@@ -40,5 +40,5 @@ export default function AdminNav(): React.ReactElement {
         </div>
       }
     />
-  )
+  );
 }

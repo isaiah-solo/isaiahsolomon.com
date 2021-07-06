@@ -1,12 +1,12 @@
-import React from 'react'
-import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite'
+import React from 'react';
+import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
 
-import textStyle from '../../../styles/textStyle'
+import textStyle from '../../../styles/textStyle';
 
 type Props = Readonly<{
-  children: React.ReactNodeArray | React.ReactElement | string
-  styleOverride?: StyleDeclarationValue
-}>
+  children: React.ReactNodeArray | React.ReactElement | string;
+  styleOverride?: StyleDeclarationValue;
+}>;
 
 const styles = StyleSheet.create({
   root: {
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     marginTop: 0,
   },
-})
+});
 
 export default function Paragraph({
   children,
@@ -24,5 +24,5 @@ export default function Paragraph({
     <p className={css(styles.root, textStyle.secondary, styleOverride)}>
       {children}
     </p>
-  )
+  );
 }

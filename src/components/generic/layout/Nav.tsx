@@ -1,5 +1,5 @@
-import React from 'react'
-import {StyleSheet, css} from 'aphrodite'
+import React from 'react';
+import {StyleSheet, css} from 'aphrodite';
 
 const styles = StyleSheet.create({
   root: {
@@ -16,12 +16,12 @@ const styles = StyleSheet.create({
     maxWidth: 960,
     padding: 20,
   },
-})
+});
 
 type Props = Readonly<{
-  leftContent?: React.ReactElement
-  rightContent?: React.ReactElement
-}>
+  leftContent?: React.ReactElement;
+  rightContent?: React.ReactElement;
+}>;
 
 export default function Nav({
   leftContent,
@@ -34,5 +34,5 @@ export default function Nav({
         {rightContent ?? <div />}
       </div>
     </header>
-  )
+  );
 }

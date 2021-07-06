@@ -1,11 +1,11 @@
-import React, {useEffect, useRef, useState} from 'react'
-import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite'
+import React, {useEffect, useRef, useState} from 'react';
+import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
 
-import HoverButton from '../generic/button/HoverButton'
+import HoverButton from '../generic/button/HoverButton';
 
-import useDebounced from '../../hooks/useDebounced'
-import useOnScrollDown from '../../hooks/useOnScrollDown'
-import useOnScrollUp from '../../hooks/useOnScrollUp'
+import useDebounced from '../../hooks/useDebounced';
+import useOnScrollDown from '../../hooks/useOnScrollDown';
+import useOnScrollUp from '../../hooks/useOnScrollUp';
 
 const arrowKeyframes = {
   '0%': {
@@ -26,7 +26,7 @@ const arrowKeyframes = {
   '100%': {
     transform: 'translateX(-50%) translateY(-100%)',
   },
-}
+};
 
 const styles = StyleSheet.create({
   arrow: {
@@ -52,65 +52,65 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '100%',
   },
-})
+});
 
 type Props = Readonly<{
-  styleOverride?: StyleDeclarationValue
-}>
+  styleOverride?: StyleDeclarationValue;
+}>;
 
 export default function HomeScrollIndicator({
   styleOverride,
 }: Props): React.ReactElement {
-  const scrollRef = useRef(null)
+  const scrollRef = useRef(null);
 
-  const [shouldAnimateArrow, setShouldAnimateArrow] = useState(false)
-  const [isIndicatorAck, setIsIndicatorAck] = useState(false)
+  const [shouldAnimateArrow, setShouldAnimateArrow] = useState(false);
+  const [isIndicatorAck, setIsIndicatorAck] = useState(false);
 
   useOnScrollDown((): void => {
-    setShouldAnimateArrow(false)
-    setIsIndicatorAck(true)
-  })
+    setShouldAnimateArrow(false);
+    setIsIndicatorAck(true);
+  });
 
   useOnScrollUp(scrollTop => {
     if (scrollTop === 0) {
-      setIsIndicatorAck(false)
+      setIsIndicatorAck(false);
     } else {
-      setShouldAnimateArrow(false)
-      setIsIndicatorAck(true)
+      setShouldAnimateArrow(false);
+      setIsIndicatorAck(true);
     }
-  })
+  });
 
   const animateArrow = useDebounced((): void => {
     if (isIndicatorAck) {
-      return
+      return;
     }
 
-    setShouldAnimateArrow(true)
-  }, 500)
+    setShouldAnimateArrow(true);
+  }, 500);
 
   useEffect((): void => {
     if (!isIndicatorAck) {
-      setTimeout(animateArrow, 500)
+      setTimeout(animateArrow, 500);
     }
-  }, [isIndicatorAck])
+  }, [isIndicatorAck]);
 
   return (
     <HoverButton
       onClick={(): void => {
-        setIsIndicatorAck(true)
+        setIsIndicatorAck(true);
 
         window.scrollTo({
           top: scrollRef.current.offsetTop + 46,
           behavior: 'smooth',
-        })
+        });
       }}
       onMouseEnter={(): void => setShouldAnimateArrow(false)}
       onMouseLeave={(): void => {
         if (isIndicatorAck) {
-          return
+          return;
         }
 
-        animateArrow()
+        animateArrow();
       }}
       ref={scrollRef}
       styleOverride={[styles.button, styleOverride]}>
@@ -121,5 +121,5 @@ export default function HomeScrollIndicator({
         )}
       />
     </HoverButton>
-  )
+  );
 }

@@ -1,14 +1,14 @@
-import React from 'react'
-import {StyleSheet} from 'aphrodite'
-import {graphql} from 'gatsby'
+import React from 'react';
+import {StyleSheet} from 'aphrodite';
+import {graphql} from 'gatsby';
 
-import BlogNav from '../../components/blog/BlogNav'
+import BlogNav from '../../components/blog/BlogNav';
 import BlogPreviewCard, {
   BlogPreviewCardNode,
-} from '../../components/blog/BlogPreviewCard'
-import Footer from '../../components/generic/layout/Footer'
-import Layout from '../../components/generic/layout/Layout'
-import Section from '../../components/generic/layout/Section'
+} from '../../components/blog/BlogPreviewCard';
+import Footer from '../../components/generic/layout/Footer';
+import Layout from '../../components/generic/layout/Layout';
+import Section from '../../components/generic/layout/Section';
 
 export const query = graphql`
   query {
@@ -20,7 +20,7 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 const styles = StyleSheet.create({
   cards: {
@@ -28,22 +28,22 @@ const styles = StyleSheet.create({
     display: 'grid',
     gridGap: 16,
   },
-})
+});
 
 type BlogArticle = Readonly<{
-  blogArticlePath: string
-}>
+  blogArticlePath: string;
+}>;
 
 type Props = Readonly<{
   data: Readonly<{
     allBlogArticles: Readonly<{
-      nodes: ReadonlyArray<BlogPreviewCardNode & BlogArticle>
-    }>
-  }>
-}>
+      nodes: ReadonlyArray<BlogPreviewCardNode & BlogArticle>;
+    }>;
+  }>;
+}>;
 
 export default function BlogPage({data}: Props): React.ReactElement {
-  const blogArticles = data.allBlogArticles.nodes
+  const blogArticles = data.allBlogArticles.nodes;
   const blogArticleCards = blogArticles.map(blogArticle => (
     <BlogPreviewCard
       blogArticle={blogArticle}
@@ -51,7 +51,7 @@ export default function BlogPage({data}: Props): React.ReactElement {
       linkText="GO TO FULL ARTICLE"
       path={blogArticle.blogArticlePath}
     />
-  ))
+  ));
 
   return (
     <Layout
@@ -69,5 +69,5 @@ export default function BlogPage({data}: Props): React.ReactElement {
         {blogArticleCards}
       </Section>
     </Layout>
-  )
+  );
 }

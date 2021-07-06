@@ -1,7 +1,7 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react';
 
-import firebase from 'gatsby-plugin-firebase'
-import 'firebase/auth'
+import firebase from 'gatsby-plugin-firebase';
+import 'firebase/auth';
 
 export default function useGoogleSignIn(): [
   () => void,
@@ -11,24 +11,24 @@ export default function useGoogleSignIn(): [
   boolean,
   firebase.FirebaseError | null,
 ] {
-  const [signedInUser, setSignedInUser] = useState<firebase.User | null>(null)
+  const [signedInUser, setSignedInUser] = useState<firebase.User | null>(null);
 
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<firebase.FirebaseError | null>(null)
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<firebase.FirebaseError | null>(null);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
 
     firebase.auth().onAuthStateChanged(user => {
-      setSignedInUser(user)
-      setLoading(false)
-    })
-  }, [setLoading, setSignedInUser])
+      setSignedInUser(user);
+      setLoading(false);
+    });
+  }, [setLoading, setSignedInUser]);
 
   const signIn = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider()
+    const provider = new firebase.auth.GoogleAuthProvider();
 
-    setLoading(true)
+    setLoading(true);
 
     await firebase
       .auth()
@@ -38,30 +38,30 @@ export default function useGoogleSignIn(): [
           .auth()
           .signInWithPopup(provider)
           .then(userCredential => {
-            setSignedInUser(userCredential.user)
+            setSignedInUser(userCredential.user);
           })
           .catch(error => {
-            setError(error)
-            setLoading(false)
-          })
+            setError(error);
+            setLoading(false);
+          });
       })
       .catch(error => {
-        setError(error)
-        setLoading(false)
-      })
-  }
+        setError(error);
+        setLoading(false);
+      });
+  };
 
   const signOut = async () => {
     await firebase
       .auth()
       .signOut()
       .catch(error => {
-        setError(error)
-        setLoading(false)
-      })
+        setError(error);
+        setLoading(false);
+      });
 
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
-  return [signIn, signOut, signedInUser, signedInUser !== null, loading, error]
+  return [signIn, signOut, signedInUser, signedInUser !== null, loading, error];
 }

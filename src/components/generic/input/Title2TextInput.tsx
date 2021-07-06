@@ -1,9 +1,9 @@
-import React from 'react'
-import {css, StyleSheet} from 'aphrodite'
+import React from 'react';
+import {css, StyleSheet} from 'aphrodite';
 
-import Card from '../card/Card'
-import CardContent from '../card/CardContent'
-import SubTitle from '../text/SubTitle'
+import Card from '../card/Card';
+import CardContent from '../card/CardContent';
+import SubTitle from '../text/SubTitle';
 
 const styles = StyleSheet.create({
   root: {
@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
     fontSize: '1.5em',
     outline: 'none',
   },
-})
+});
 
 type Props = Readonly<{
-  label: string
-  setText?: (text: string) => void
-  text: string
-}>
+  label: string;
+  setText?: (text: string) => void;
+  text: string;
+}>;
 
 export default function Title2TextInput({
   label,
@@ -43,5 +43,5 @@ export default function Title2TextInput({
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

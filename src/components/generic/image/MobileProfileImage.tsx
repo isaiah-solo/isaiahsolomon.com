@@ -1,7 +1,7 @@
-import React from 'react'
-import {useStaticQuery, graphql} from 'gatsby'
-import Img from 'gatsby-image'
-import {StyleSheet, css} from 'aphrodite'
+import React from 'react';
+import {useStaticQuery, graphql} from 'gatsby';
+import Img from 'gatsby-image';
+import {StyleSheet, css} from 'aphrodite';
 
 const styles = StyleSheet.create({
   root: {
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
-})
+});
 
 export default function MobileProfileImage(): React.ReactElement {
   const data = useStaticQuery(graphql`
@@ -23,12 +23,12 @@ export default function MobileProfileImage(): React.ReactElement {
         }
       }
     }
-  `)
+  `);
 
   return (
     <Img
       className={css(styles.root)}
       fluid={data.placeholderImage.childImageSharp.fluid}
     />
-  )
+  );
 }

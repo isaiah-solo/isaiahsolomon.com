@@ -1,14 +1,14 @@
-import React from 'react'
-import {StyleSheet} from 'aphrodite'
-import {graphql} from 'gatsby'
+import React from 'react';
+import {StyleSheet} from 'aphrodite';
+import {graphql} from 'gatsby';
 
-import AdminNav from '../../../components/admin/AdminNav'
-import {AdminSignInProvider} from '../../../contexts/AdminSignInContext'
+import AdminNav from '../../../components/admin/AdminNav';
+import {AdminSignInProvider} from '../../../contexts/AdminSignInContext';
 import BlogPreviewCard, {
   BlogPreviewCardNode,
-} from '../../../components/blog/BlogPreviewCard'
-import Layout from '../../../components/generic/layout/Layout'
-import Section from '../../../components/generic/layout/Section'
+} from '../../../components/blog/BlogPreviewCard';
+import Layout from '../../../components/generic/layout/Layout';
+import Section from '../../../components/generic/layout/Section';
 
 export const query = graphql`
   query {
@@ -20,7 +20,7 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 const styles = StyleSheet.create({
   cards: {
@@ -28,22 +28,22 @@ const styles = StyleSheet.create({
     display: 'grid',
     gridGap: 16,
   },
-})
+});
 
 type BlogArticle = Readonly<{
-  blogArticlePath: string
-}>
+  blogArticlePath: string;
+}>;
 
 type Props = Readonly<{
   data: Readonly<{
     allBlogArticles: Readonly<{
-      nodes: ReadonlyArray<BlogPreviewCardNode & BlogArticle>
-    }>
-  }>
-}>
+      nodes: ReadonlyArray<BlogPreviewCardNode & BlogArticle>;
+    }>;
+  }>;
+}>;
 
 export default function AdminBlogPage({data}: Props): React.ReactElement {
-  const blogArticles = data.allBlogArticles.nodes
+  const blogArticles = data.allBlogArticles.nodes;
   const blogArticleCards = blogArticles.map(blogArticle => (
     <BlogPreviewCard
       blogArticle={blogArticle}
@@ -51,7 +51,7 @@ export default function AdminBlogPage({data}: Props): React.ReactElement {
       linkText="EDIT BLOG"
       path={blogArticle.blogArticlePath}
     />
-  ))
+  ));
 
   return (
     <AdminSignInProvider>
@@ -64,5 +64,5 @@ export default function AdminBlogPage({data}: Props): React.ReactElement {
         </Section>
       </Layout>
     </AdminSignInProvider>
-  )
+  );
 }

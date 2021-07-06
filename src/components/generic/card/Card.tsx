@@ -1,5 +1,5 @@
-import React from 'react'
-import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite'
+import React from 'react';
+import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
 
 const styles = StyleSheet.create({
   root: {
@@ -14,14 +14,14 @@ const styles = StyleSheet.create({
       cursor: 'pointer',
     },
   },
-})
+});
 
 type Props = Readonly<{
-  children?: React.ReactNodeArray | React.ReactElement
-  href?: string | null
-  onClick?: (() => void) | null
-  styleOverride?: StyleDeclarationValue
-}>
+  children?: React.ReactNodeArray | React.ReactElement;
+  href?: string | null;
+  onClick?: (() => void) | null;
+  styleOverride?: StyleDeclarationValue;
+}>;
 
 export default function Card({
   children,
@@ -39,11 +39,11 @@ export default function Card({
       onClick={onClick}>
       {children}
     </div>
-  )
+  );
 
   if (href === null) {
-    return content
+    return content;
   }
 
-  return <a href={href}>{content}</a>
+  return <a href={href}>{content}</a>;
 }

@@ -1,39 +1,39 @@
-import {useRef, useState} from 'react'
+import {useRef, useState} from 'react';
 
-import firebase from 'gatsby-plugin-firebase'
-import 'firebase/firestore'
+import firebase from 'gatsby-plugin-firebase';
+import 'firebase/firestore';
 
-type DocumentData = firebase.firestore.DocumentData
-type DocumentDataUpdater = (data: DocumentData) => DocumentData
+type DocumentData = firebase.firestore.DocumentData;
+type DocumentDataUpdater = (data: DocumentData) => DocumentData;
 
 export default function useFirestoreDocumentMutation(
   collection: string,
   docID: string,
 ): [(updater: DocumentDataUpdater) => void, boolean] {
-  const {current: firestore} = useRef(firebase.firestore())
-  const docRef = firestore.collection(collection).doc(docID)
+  const {current: firestore} = useRef(firebase.firestore());
+  const docRef = firestore.collection(collection).doc(docID);
 
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const updateDoc = async (updater: DocumentDataUpdater) => {
-    setIsLoading(true)
+    setIsLoading(true);
 
     await firebase.firestore().runTransaction(async transaction => {
       // This code may get re-run multiple times if there are conflicts.
       return transaction
         .get(docRef)
         .then(doc => {
-          setIsLoading(false)
+          setIsLoading(false);
 
           if (!doc.exists) {
-            throw 'Document does not exist!'
+            throw 'Document does not exist!';
           }
 
-          transaction.update(docRef, updater(doc.data()))
+          transaction.update(docRef, updater(doc.data()));
         })
-        .catch(error => console.error(error))
-    })
-  }
+        .catch(error => console.error(error));
+    });
+  };
 
-  return [updateDoc, isLoading]
+  return [updateDoc, isLoading];
 }

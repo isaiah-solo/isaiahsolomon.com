@@ -1,10 +1,10 @@
-import React from 'react'
-import {css, StyleSheet} from 'aphrodite'
-import Editor from 'rich-markdown-editor'
+import React from 'react';
+import {css, StyleSheet} from 'aphrodite';
+import Editor from 'rich-markdown-editor';
 
-import Card from '../card/Card'
-import CardContent from '../card/CardContent'
-import SubTitle from '../text/SubTitle'
+import Card from '../card/Card';
+import CardContent from '../card/CardContent';
+import SubTitle from '../text/SubTitle';
 
 const styles = StyleSheet.create({
   root: {
@@ -16,13 +16,13 @@ const styles = StyleSheet.create({
     boxSizing: 'border-box',
     paddingLeft: 32,
   },
-})
+});
 
 type Props = Readonly<{
-  defaultText?: string | null
-  label: string
-  onTextChange?: (newText: string) => void
-}>
+  defaultText?: string | null;
+  label: string;
+  onTextChange?: (newText: string) => void;
+}>;
 
 export default function RichTextInput({
   defaultText,
@@ -37,11 +37,11 @@ export default function RichTextInput({
           <Editor
             defaultValue={defaultText}
             onChange={getValue => {
-              onTextChange?.(getValue())
+              onTextChange?.(getValue());
             }}
           />
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
