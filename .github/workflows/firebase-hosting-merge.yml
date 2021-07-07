@@ -21,7 +21,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js
+      - name: Retrieve npm cache (if any)
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: npm-packages
+      - name: Use Node.js 10
         uses: actions/setup-node@v1
         with:
           node-version: 10.24.1
