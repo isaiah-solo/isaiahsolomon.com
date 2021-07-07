@@ -18,7 +18,8 @@ jobs:
     if: '${{github.event.pull_request.head.repo.full_name == github.repository}}'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout branch
+        uses: actions/checkout@v2
       - name: Retrieve npm cache (if any)
         uses: actions/cache@v1
         with:
@@ -28,8 +29,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10.24.1
-      - run: npm ci && npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Build
+        run: npm ci && npm run build
+      - name: Deploy
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{secrets.GITHUB_TOKEN}}'
           firebaseServiceAccount: '${{secrets.FIREBASE_SERVICE_ACCOUNT_ISAIAHSOLOMON_COM}}'
