@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 
 const MobileContext = React.createContext({isMobile: false});
 
@@ -11,28 +11,28 @@ export function useIsMobile(): boolean {
   return isMobile;
 }
 
-export function useMobileProvider() {
+export function MobileProvider({children}: ProviderProps): React.ReactElement {
   const [isMobile, setIsMobile] = useState(null);
 
-  useEffect((): (() => void) => {
-    const resizeFunc = () => {
+  const resizeFunc = useCallback(
+    () =>
       setIsMobile(
         window.matchMedia('only screen and (max-width: 760px)').matches,
-      );
-    };
+      ),
+    [],
+  );
 
+  useEffect(() => {
     window.addEventListener('resize', resizeFunc, false);
 
     return (): void => {
       window.removeEventListener('resize', resizeFunc);
     };
-  }, []);
+  }, [resizeFunc]);
 
-  return useMemo(() => {
-    return ({children}: ProviderProps): React.ReactElement => (
-      <MobileContext.Provider value={{isMobile}}>
-        {children}
-      </MobileContext.Provider>
-    );
-  }, [isMobile]);
+  return (
+    <MobileContext.Provider value={{isMobile}}>
+      {children}
+    </MobileContext.Provider>
+  );
 }

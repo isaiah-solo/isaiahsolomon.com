@@ -9,7 +9,7 @@ import HomeNav from '../components/home/HomeNav';
 import HomeScrollIndicator from '../components/home/HomeScrollIndicator';
 import Timeline from '../components/home/Timeline';
 import TimelineSection from '../components/home/TimelineSection';
-import {useMobileProvider} from '../contexts/MobileContext';
+import {MobileProvider} from '../contexts/MobileContext';
 
 const styles = StyleSheet.create({
   indicatorMargin: {
@@ -19,8 +19,6 @@ const styles = StyleSheet.create({
 });
 
 export default function HomePage(): React.ReactElement {
-  const MobileProvider = useMobileProvider();
-
   return (
     <MobileProvider>
       <Layout footer={<Footer />} nav={<HomeNav />} seo="Home">
