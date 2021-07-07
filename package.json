@@ -2,7 +2,7 @@
   "name": "isaiahsolomon.com",
   "private": false,
   "description": "Isaiah Solomon's personal website.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Isaiah Solomon <isaiah.c.solomon@gmail.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
