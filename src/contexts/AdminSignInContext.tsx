@@ -15,17 +15,17 @@ const AdminSignInContext = React.createContext<
     error: firebase.FirebaseError | null;
   }>
 >({
-  signIn: (): void => {},
-  signOut: (): void => {},
+  signIn: (): void => { },
+  signOut: (): void => { },
   signedInUser: null,
   isSignedIn: false,
   isLoading: false,
   error: null,
 });
 
-type ProviderProps = {
+type ProviderProps = Readonly<{
   children: React.ReactElement;
-};
+}>;
 
 export function useIsSignedIn(): boolean {
   const {isSignedIn} = useContext(AdminSignInContext);

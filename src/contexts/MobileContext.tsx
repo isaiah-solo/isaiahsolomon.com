@@ -2,9 +2,9 @@ import React, {useCallback, useContext, useEffect, useState} from 'react';
 
 const MobileContext = React.createContext({isMobile: false});
 
-type ProviderProps = {
+type ProviderProps = Readonly<{
   children: React.ReactNodeArray | React.ReactElement;
-};
+}>;
 
 export function useIsMobile(): boolean {
   const {isMobile} = useContext(MobileContext);
