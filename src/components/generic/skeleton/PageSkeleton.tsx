@@ -1,7 +1,6 @@
-import React from 'react';
 import {StyleSheet} from 'aphrodite';
+import React from 'react';
 import Skeleton from 'react-loading-skeleton';
-
 import Layout from '../layout/Layout';
 import Nav from '../layout/Nav';
 import Section from '../layout/Section';

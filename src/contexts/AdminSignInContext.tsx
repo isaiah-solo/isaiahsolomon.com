@@ -1,10 +1,9 @@
 import firebase from 'gatsby-plugin-firebase';
 import React, {useContext} from 'react';
-
 import AdminSignInView from '../components/admin/AdminSignInView';
 import FlatButton from '../components/generic/button/FlatButton';
-import useGoogleSignIn from '../hooks/useGoogleSignIn';
 import PageSkeleton from '../components/generic/skeleton/PageSkeleton';
+import useGoogleSignIn from '../hooks/useGoogleSignIn';
 
 const AdminSignInContext = React.createContext<
   Readonly<{
@@ -16,8 +15,8 @@ const AdminSignInContext = React.createContext<
     error: firebase.FirebaseError | null;
   }>
 >({
-  signIn: (): void => { },
-  signOut: (): void => { },
+  signIn: (): void => {},
+  signOut: (): void => {},
   signedInUser: null,
   isSignedIn: false,
   isLoading: false,

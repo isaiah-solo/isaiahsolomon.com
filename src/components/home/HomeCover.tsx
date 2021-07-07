@@ -1,13 +1,10 @@
+import {css, StyleSheet} from 'aphrodite';
 import React from 'react';
-import {StyleSheet, css} from 'aphrodite';
-
-import Title1 from '../generic/text/Title1';
-import Paragraph from '../generic/text/Paragraph';
-
+import {useIsMobile} from '../../contexts/MobileContext';
 import MobileProfileImage from '../generic/image/MobileProfileImage';
 import WebProfileImage from '../generic/image/WebProfileImage';
-
-import {useIsMobile} from '../../contexts/MobileContext';
+import Paragraph from '../generic/text/Paragraph';
+import Title1 from '../generic/text/Title1';
 
 const styles = StyleSheet.create({
   root: {

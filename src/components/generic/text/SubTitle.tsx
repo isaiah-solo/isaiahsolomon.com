@@ -1,6 +1,5 @@
+import {css, StyleSheet} from 'aphrodite';
 import React from 'react';
-import {StyleSheet, css} from 'aphrodite';
-
 import textStyle from '../../../styles/textStyle';
 
 const styles = StyleSheet.create({

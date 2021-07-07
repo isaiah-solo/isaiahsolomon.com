@@ -1,7 +1,7 @@
-import React from 'react';
-import {useStaticQuery, graphql} from 'gatsby';
+import {css, StyleSheet} from 'aphrodite';
+import {graphql, useStaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
-import {StyleSheet, css} from 'aphrodite';
+import React from 'react';
 
 const styles = StyleSheet.create({
   root: {

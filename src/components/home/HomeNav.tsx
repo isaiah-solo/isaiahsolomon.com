@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
-import {StyleSheet, css} from 'aphrodite';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGithubSquare, faLinkedin} from '@fortawesome/free-brands-svg-icons';
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {css, StyleSheet} from 'aphrodite';
+import React, {useState} from 'react';
 import Nav from '../generic/layout/Nav';
-
 import Link from '../generic/text/Link';
 import RouteLink from '../generic/text/RouteLink';
 import SubTitle from '../generic/text/SubTitle';

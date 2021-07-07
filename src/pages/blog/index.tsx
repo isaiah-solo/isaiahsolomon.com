@@ -1,7 +1,6 @@
-import React from 'react';
 import {StyleSheet} from 'aphrodite';
 import {graphql} from 'gatsby';
-
+import React from 'react';
 import BlogNav from '../../components/blog/BlogNav';
 import BlogPreviewCard, {
   BlogPreviewCardNode,
@@ -54,10 +53,7 @@ export default function BlogPage({data}: Props): React.ReactElement {
   ));
 
   return (
-    <Layout
-      footer={<Footer />}
-      nav={<BlogNav />}
-      seo="Blog">
+    <Layout footer={<Footer />} nav={<BlogNav />} seo="Blog">
       <Section
         styleOverride={styles.cards}
         subtitle="Where I post my top-of-mind articles."

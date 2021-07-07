@@ -1,5 +1,5 @@
+import {css, StyleDeclarationValue, StyleSheet} from 'aphrodite';
 import React from 'react';
-import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
 
 const styles = StyleSheet.create({
   root: {

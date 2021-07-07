@@ -1,5 +1,5 @@
+import {css, StyleSheet} from 'aphrodite';
 import React from 'react';
-import {StyleSheet, css} from 'aphrodite';
 import Link from '../text/Link';
 
 const styles = StyleSheet.create({

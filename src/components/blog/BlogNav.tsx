@@ -1,8 +1,6 @@
+import {css, StyleSheet} from 'aphrodite';
 import React from 'react';
-import {StyleSheet, css} from 'aphrodite';
-
 import Nav from '../generic/layout/Nav';
-
 import RouteLink from '../generic/text/RouteLink';
 import SubTitle from '../generic/text/SubTitle';
 

@@ -1,7 +1,6 @@
-import {useEffect, useState} from 'react';
-
-import firebase from 'gatsby-plugin-firebase';
 import 'firebase/auth';
+import firebase from 'gatsby-plugin-firebase';
+import {useEffect, useState} from 'react';
 
 export default function useGoogleSignIn(): [
   () => void,

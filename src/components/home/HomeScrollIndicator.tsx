@@ -1,11 +1,9 @@
+import {css, StyleDeclarationValue, StyleSheet} from 'aphrodite';
 import React, {useEffect, useRef, useState} from 'react';
-import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
-
-import HoverButton from '../generic/button/HoverButton';
-
 import useDebounced from '../../hooks/useDebounced';
 import useOnScrollDown from '../../hooks/useOnScrollDown';
 import useOnScrollUp from '../../hooks/useOnScrollUp';
+import HoverButton from '../generic/button/HoverButton';
 
 const arrowKeyframes = {
   '0%': {

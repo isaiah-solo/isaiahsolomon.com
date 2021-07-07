@@ -1,6 +1,5 @@
+import {css, StyleSheet} from 'aphrodite';
 import React from 'react';
-import {StyleSheet, css} from 'aphrodite';
-
 import TimelineDot from './TimelineDot';
 import TimelineLine from './TimelineLine';
 

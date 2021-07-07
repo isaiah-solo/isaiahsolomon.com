@@ -1,6 +1,5 @@
-import React from 'react';
 import {css, StyleSheet} from 'aphrodite';
-
+import React from 'react';
 import Card from '../card/Card';
 import CardContent from '../card/CardContent';
 import SubTitle from '../text/SubTitle';

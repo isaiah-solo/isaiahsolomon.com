@@ -1,6 +1,5 @@
+import {css, StyleDeclarationValue, StyleSheet} from 'aphrodite';
 import React from 'react';
-import {StyleSheet, css, StyleDeclarationValue} from 'aphrodite';
-
 import textStyle from '../../../styles/textStyle';
 
 type Props = Readonly<{

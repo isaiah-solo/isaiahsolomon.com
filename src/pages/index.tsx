@@ -1,19 +1,15 @@
-import React from 'react';
 import {StyleSheet} from 'aphrodite';
-
+import React from 'react';
 import Footer from '../components/generic/layout/Footer';
 import Layout from '../components/generic/layout/Layout';
 import Section from '../components/generic/layout/Section';
-
 import Paragraph from '../components/generic/text/Paragraph';
-
 import HomeCover from '../components/home/HomeCover';
 import HomeNav from '../components/home/HomeNav';
 import HomeScrollIndicator from '../components/home/HomeScrollIndicator';
 import Timeline from '../components/home/Timeline';
-
-import {useMobileProvider} from '../contexts/MobileContext';
 import TimelineSection from '../components/home/TimelineSection';
+import {useMobileProvider} from '../contexts/MobileContext';
 
 const styles = StyleSheet.create({
   indicatorMargin: {
@@ -27,10 +23,7 @@ export default function HomePage(): React.ReactElement {
 
   return (
     <MobileProvider>
-      <Layout
-        footer={<Footer />}
-        nav={<HomeNav />}
-        seo="Home">
+      <Layout footer={<Footer />} nav={<HomeNav />} seo="Home">
         <Section>
           <HomeCover />
         </Section>

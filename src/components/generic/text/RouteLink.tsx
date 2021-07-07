@@ -1,6 +1,6 @@
-import React from 'react';
+import {css, StyleSheet} from 'aphrodite';
 import {Link as GatsbyLink} from 'gatsby';
-import {StyleSheet, css} from 'aphrodite';
+import React from 'react';
 
 const styles = StyleSheet.create({
   root: {

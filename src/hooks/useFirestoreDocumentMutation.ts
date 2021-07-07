@@ -1,7 +1,6 @@
-import {useRef, useState} from 'react';
-
-import firebase from 'gatsby-plugin-firebase';
 import 'firebase/firestore';
+import firebase from 'gatsby-plugin-firebase';
+import {useRef, useState} from 'react';
 
 type DocumentData = firebase.firestore.DocumentData;
 type DocumentDataUpdater = (data: DocumentData) => DocumentData;
