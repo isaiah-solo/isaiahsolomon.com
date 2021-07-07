@@ -13,7 +13,6 @@ export const query = graphql`
   query {
     allBlogArticles {
       nodes {
-        blogArticlePath: gatsbyPath(filePath: "/blog/{BlogArticles.id}")
         id
         ...BlogPreviewCard
       }
@@ -48,7 +47,7 @@ export default function BlogPage({data}: Props): React.ReactElement {
       blogArticle={blogArticle}
       key={blogArticle.id}
       linkText="GO TO FULL ARTICLE"
-      path={blogArticle.blogArticlePath}
+      path={`/blog/${blogArticle.id}`}
     />
   ));
 

@@ -1,0 +1,31 @@
+diff --git a/node_modules/gatsby-source-firebase-collections/gatsby-node.js b/node_modules/gatsby-source-firebase-collections/gatsby-node.js
+index 838c136..14acbd5 100644
+--- a/node_modules/gatsby-source-firebase-collections/gatsby-node.js
++++ b/node_modules/gatsby-source-firebase-collections/gatsby-node.js
+@@ -95,11 +95,13 @@ exports.sourceNodes = async (
+   callback
+ ) => {
+   try {
+-    if (firebase.apps || !firebase.apps.length) {
++    if (!firebase.apps.length) {
+       const config = appConfig || {
+         credential: firebase.credential.cert(credential),
+       };
+       firebase.initializeApp(config);
++    } else {
++      firebase.app();
+     }
+ 
+     const db = firebase.firestore();
+@@ -114,9 +116,10 @@ exports.sourceNodes = async (
+ 
+         if (docs.length > 0) {
+           for (let doc of snapshot.docs) {
+-            const contentDigest = getDigest(doc.id);
+             const values = { ...doc.data() };
+ 
++            const contentDigest = getDigest(JSON.stringify(values));
++
+             const node = Object.assign(
+               {
+                 id: doc.id,
