@@ -7,25 +7,21 @@ import useGoogleSignIn from '../hooks/useGoogleSignIn';
 
 const AdminSignInContext = React.createContext<
   Readonly<{
+    error: firebase.FirebaseError | null;
+    isLoading: boolean;
+    isSignedIn: boolean;
+    signedInUser: firebase.User | null;
     signIn: () => void;
     signOut: () => void;
-    signedInUser: firebase.User | null;
-    isSignedIn: boolean;
-    isLoading: boolean;
-    error: firebase.FirebaseError | null;
   }>
 >({
-  signIn: (): void => { },
-  signOut: (): void => { },
-  signedInUser: null,
-  isSignedIn: false,
-  isLoading: false,
   error: null,
+  isLoading: false,
+  isSignedIn: false,
+  signedInUser: null,
+  signIn: (): void => {},
+  signOut: (): void => {},
 });
-
-type ProviderProps = Readonly<{
-  children: React.ReactElement;
-}>;
 
 export function useIsSignedIn(): boolean {
   const {isSignedIn} = useContext(AdminSignInContext);
@@ -57,7 +53,11 @@ export function useSignInLoadingState(): [
   return [isLoading, error];
 }
 
-export function AdminSignInProvider({children}: ProviderProps) {
+export function AdminSignInProvider({
+  children,
+}: Readonly<{
+  children: React.ReactElement;
+}>) {
   const [
     signIn,
     signOut,
