@@ -1,14 +1,22 @@
 import * as functions from 'firebase-functions';
+import {Octokit} from '@octokit/core';
 
-// Start writing Firebase Functions
-// https://firebase.google.com/docs/functions/typescript
+export const redeployAppOnBlogUpdate = functions.firestore
+  .document('blog_articles/{id}').onWrite(async (_change, _context) => {
+    const octokit = new Octokit({
+      auth: process.env.WEBHOOK_GITHUB_PRIVATE_KEY,
+    });
 
-export const helloWorld = functions.https.onRequest((request, response) => {
-  functions.logger.info('Hello logs!', {structuredData: true});
-  response.send('Hello from Firebase!');
-});
+    const response = await octokit.request(
+      'POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches',
+      {
+        inputs: {source: 'Firebase function'},
+        owner: 'isaiah-solo',
+        ref: 'master',
+        repo: 'isaiahsolomon.com',
+        workflow_id: 'firebase-hosting-webhook.yml',
+      },
+    );
 
-export const myFunctionName = functions.firestore
-  .document('blog_articles/{id}').onWrite((change, context) => {
-    // ... Your code here
+    console.log(`Response: ${JSON.stringify(response)}`);
   });
