@@ -3,11 +3,13 @@ import {Octokit} from '@octokit/core';
 
 export const redeployAppOnBlogUpdate = functions.firestore
   .document('blog_articles/{id}').onWrite(async (_change, _context) => {
+    const privateKey = functions.config().github.auth;
+
     const octokit = new Octokit({
-      auth: process.env.WEBHOOK_GITHUB_PRIVATE_KEY,
+      auth: privateKey,
     });
 
-    console.log(process.env.WEBHOOK_GITHUB_PRIVATE_KEY);
+    console.log(privateKey);
 
     const response = await octokit.request(
       'POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches',
