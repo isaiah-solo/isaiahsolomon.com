@@ -7,6 +7,8 @@ export const redeployAppOnBlogUpdate = functions.firestore
       auth: process.env.WEBHOOK_GITHUB_PRIVATE_KEY,
     });
 
+    console.log(process.env.WEBHOOK_GITHUB_PRIVATE_KEY);
+
     const response = await octokit.request(
       'POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches',
       {
