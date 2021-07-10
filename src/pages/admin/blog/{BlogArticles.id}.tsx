@@ -41,7 +41,7 @@ export default function BlogArticlePage({data}): React.ReactElement {
 
   const currentDate = useFirestoreCurrentDate();
 
-  const [commitMutation, isLoading] = useFirestoreDocumentMutation(
+  const [commitMutation, isMutationCommitting] = useFirestoreDocumentMutation(
     'blog_articles',
     id,
   );
@@ -62,7 +62,7 @@ export default function BlogArticlePage({data}): React.ReactElement {
     <div>Error! {JSON.stringify(error)}</div>;
   }
 
-  if (isLoading || isLiveDataLoading || liveData === null) {
+  if (isMutationCommitting || isLiveDataLoading || liveData === null) {
     return <PageSkeleton />;
   }
 
