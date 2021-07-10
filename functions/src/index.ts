@@ -2,14 +2,12 @@ import * as functions from 'firebase-functions';
 import {Octokit} from '@octokit/core';
 
 export const redeployAppOnBlogUpdate = functions.firestore
-  .document('blog_articles/{id}').onWrite(async (_change, _context) => {
+  .document('blog_articles/{id}').onWrite(async () => {
     const privateKey = functions.config().github.auth;
 
     const octokit = new Octokit({
       auth: privateKey,
     });
-
-    console.log(privateKey);
 
     const response = await octokit.request(
       'POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches',
