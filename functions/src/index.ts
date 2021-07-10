@@ -1,6 +1,10 @@
 import * as functions from 'firebase-functions';
 import {Octokit} from '@octokit/core';
 
+/**
+ * Grab github client using env private key
+ * @returns {Octokit} Github client to make requests
+ */
 function getGithubClient(): Octokit {
   const privateKey = functions.config().github.auth;
 
