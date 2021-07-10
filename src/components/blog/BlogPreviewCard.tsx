@@ -4,6 +4,7 @@ import FlatButton from '../generic/button/FlatButton';
 import Card from '../generic/card/Card';
 import CardContent from '../generic/card/CardContent';
 import CardFooter from '../generic/card/CardFooter';
+import Markdown from '../generic/text/Markdown';
 import Paragraph from '../generic/text/Paragraph';
 import RouteLink from '../generic/text/RouteLink';
 import Title2 from '../generic/text/Title2';
@@ -38,7 +39,7 @@ export default function BlogPreviewCard({
     <Card>
       <CardContent>
         <Title2>{title}</Title2>
-        <Paragraph>{content}</Paragraph>
+        <Markdown>{content}</Markdown>
       </CardContent>
       <CardFooter
         primaryCTA={
