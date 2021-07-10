@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@types/firebase": "^3.2.1",
+    "eslint-config-prettier": "^8.3.0",
     "patch-package": "^6.4.7",
     "prettier": "2.0.5",
     "prettier-plugin-organize-imports": "^2.2.0",

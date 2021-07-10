@@ -59,9 +59,7 @@ export default function BlogArticlePage({data}): React.ReactElement {
   const isBlogUpToDate = lastUpdatedDate >= liveLastUpdatedDate;
 
   if (error !== null) {
-    <div>
-      Error! {JSON.stringify(error)}
-    </div>;
+    <div>Error! {JSON.stringify(error)}</div>;
   }
 
   if (isLoading || isLiveDataLoading || liveData === null) {
