@@ -39,6 +39,12 @@ jobs:
           projectId: isaiahsolomon-com
       - name: Build functions packages
         run: cd functions && npm ci && npm run build
+      - name:  Set Firebase env variables
+        uses: w9jds/firebase-action@master
+        with:
+            args: functions:config:set github.auth="${{secrets.WEBHOOK_GITHUB_PRIVATE_KEY}}"
+        env:
+            FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
       - name:  Deploy functions
         uses: w9jds/firebase-action@master
         with:
