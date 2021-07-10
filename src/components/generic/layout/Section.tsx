@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 });
 
 type Props = Readonly<{
-  children: React.ReactNodeArray | React.ReactElement;
+  children?: React.ReactNodeArray | React.ReactElement;
   subtitle?: string | null;
   styleOverride?: StyleDeclarationValue;
   title?: string | null;

@@ -1,5 +1,5 @@
-import * as functions from 'firebase-functions';
 import {Octokit} from '@octokit/core';
+import * as functions from 'firebase-functions';
 
 /**
  * Grab github client using env private key
@@ -14,7 +14,8 @@ function getGithubClient(): Octokit {
 }
 
 export const redeployAppOnBlogUpdate = functions.firestore
-  .document('blog_articles/{id}').onUpdate(async change => {
+  .document('blog_articles/{id}')
+  .onUpdate(async change => {
     const octokit = getGithubClient();
 
     const previousData = change.before.data();
