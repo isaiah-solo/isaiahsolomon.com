@@ -1,13 +1,26 @@
 import * as functions from 'firebase-functions';
 import {Octokit} from '@octokit/core';
 
-export const redeployAppOnBlogUpdate = functions.firestore
-  .document('blog_articles/{id}').onWrite(async () => {
-    const privateKey = functions.config().github.auth;
+function getGithubClient(): Octokit {
+  const privateKey = functions.config().github.auth;
 
-    const octokit = new Octokit({
-      auth: privateKey,
-    });
+  return new Octokit({
+    auth: privateKey,
+  });
+}
+
+export const redeployAppOnBlogUpdate = functions.firestore
+  .document('blog_articles/{id}').onUpdate(async change => {
+    const octokit = getGithubClient();
+
+    const previousData = change.before.data();
+    const {title: previousTitle} = previousData ?? {};
+
+    const newData = change.after.data();
+
+    console.log(`Blog "${String(previousTitle)}" is being updated.`);
+    console.log(`Old data: "${JSON.stringify(previousData)}"`);
+    console.log(`New data: "${JSON.stringify(newData)}"`);
 
     const response = await octokit.request(
       'POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches',
@@ -20,5 +33,5 @@ export const redeployAppOnBlogUpdate = functions.firestore
       },
     );
 
-    console.log(`Response: ${JSON.stringify(response)}`);
+    console.log(`Response from Github call: ${JSON.stringify(response)}`);
   });
